@@ -1,0 +1,1412 @@
+{
+	"info": {
+		"_postman_id": "1e0a43cb-de42-4bfe-9855-7c8aac92f3d6",
+		"name": "Ordering System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16116966"
+	},
+	"item": [
+		{
+			"name": "Add / Update Product & Variant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"code\": \"UP500050\",\r\n            \"name\": \"AIR MINERAL\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP500050\",\r\n                    \"sku\": \"UP500050\",\r\n                    \"name\": \"AIR MINERAL\",\r\n                    \"description\": \"AIR MINERAL\",\r\n                    \"groups\": [\r\n                        \"78\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP500051\",\r\n            \"name\": \"ENERGIZER\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP500051\",\r\n                    \"sku\": \"UP500051\",\r\n                    \"name\": \"ENERGIZER\",\r\n                    \"description\": \"ENERGIZER\",\r\n                    \"groups\": [\r\n                        \"36\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP500044\",\r\n            \"name\": \"TEH TAWAR\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP500044\",\r\n                    \"sku\": \"UP500044\",\r\n                    \"name\": \"TEH TAWAR\",\r\n                    \"description\": \"TEH TAWAR\",\r\n                    \"groups\": [\r\n                        \"78\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100026\",\r\n            \"name\": \"I BLACK KARI AYM\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100026\",\r\n                    \"sku\": \"UP100026\",\r\n                    \"name\": \"I BLACK KARI AYM\",\r\n                    \"description\": \"I BLACK KARI AYM\",\r\n                    \"groups\": [\r\n                        \"47\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100025\",\r\n            \"name\": \"I BLACK SOTO AYM\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100025\",\r\n                    \"sku\": \"UP100025\",\r\n                    \"name\": \"I BLACK SOTO AYM\",\r\n                    \"description\": \"I BLACK SOTO AYM\",\r\n                    \"groups\": [\r\n                        \"47\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100015\",\r\n            \"name\": \"I GOKIL GORENG IGA\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100015\",\r\n                    \"sku\": \"UP100015\",\r\n                    \"name\": \"I GOKIL GORENG IGA\",\r\n                    \"description\": \"I GOKIL GORENG IGA\",\r\n                    \"groups\": [\r\n                        \"48\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100016\",\r\n            \"name\": \"I GOKIL GORENG RDG\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100016\",\r\n                    \"sku\": \"UP100016\",\r\n                    \"name\": \"I GOKIL GORENG RDG\",\r\n                    \"description\": \"I GOKIL GORENG RDG\",\r\n                    \"groups\": [\r\n                        \"48\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100014\",\r\n            \"name\": \"I GOKIL KARI AYAM\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100014\",\r\n                    \"sku\": \"UP100014\",\r\n                    \"name\": \"I GOKIL KARI AYAM\",\r\n                    \"description\": \"I GOKIL KARI AYAM\",\r\n                    \"groups\": [\r\n                        \"48\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100173\",\r\n            \"name\": \"I JKL GORENG RDG\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100173\",\r\n                    \"sku\": \"UP100173\",\r\n                    \"name\": \"I JKL GORENG RDG\",\r\n                    \"description\": \"I JKL GORENG RDG\",\r\n                    \"groups\": [\r\n                        \"51\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100172\",\r\n            \"name\": \"I JKL GORENG SPC\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100172\",\r\n                    \"sku\": \"UP100172\",\r\n                    \"name\": \"I JKL GORENG SPC\",\r\n                    \"description\": \"I JKL GORENG SPC\",\r\n                    \"groups\": [\r\n                        \"51\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100002\",\r\n            \"name\": \"I UPNORMAL AYAM BWG\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100002\",\r\n                    \"sku\": \"UP100002\",\r\n                    \"name\": \"I UPNORMAL AYAM BWG\",\r\n                    \"description\": \"I UPNORMAL AYAM BWG\",\r\n                    \"groups\": [\r\n                        \"52\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP100001\",\r\n            \"name\": \"I UPNORMAL AYAM SPC\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP100001\",\r\n                    \"sku\": \"UP100001\",\r\n                    \"name\": \"I UPNORMAL AYAM SPC\",\r\n                    \"description\": \"I UPNORMAL AYAM SPC\",\r\n                    \"groups\": [\r\n                        \"52\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP500049\",\r\n            \"name\": \"NUTRISARI JERUK\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP500049\",\r\n                    \"sku\": \"UP500049\",\r\n                    \"name\": \"NUTRISARI JERUK\",\r\n                    \"description\": \"NUTRISARI JERUK\",\r\n                    \"groups\": [\r\n                        \"78\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"code\": \"UP500037\",\r\n            \"name\": \"SODA PISANG SUSU\",\r\n            \"is_active\": true,\r\n            \"variants\": [\r\n                {\r\n                    \"code\": \"UP500037\",\r\n                    \"sku\": \"UP500037\",\r\n                    \"name\": \"SODA PISANG SUSU\",\r\n                    \"description\": \"SODA PISANG SUSU\",\r\n                    \"groups\": [\r\n                        \"34\"\r\n                    ],\r\n                    \"is_active\": true\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/products/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"products",
+						"update"
+					]
+				},
+				"description": "API ini digunakan untuk menambahkan atau mengubah informasi atas product dan variant tertentu."
+			},
+			"response": [
+				{
+					"name": "Success Add / Update Product & Variant",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token f89cc472a51090163e45699037bce4276d076734",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"products\":\r\n[  \r\n    {  \r\n        \"code\":\"P001\",\r\n        \"name\":\"Indomie\",\r\n        \"is_active\": true,\r\n        \"variants\":[  \r\n            {  \r\n                \"code\":\"V001\",\r\n                \"sku\":\"V001\",\r\n                \"name\":\"Indomie goreng single\",\r\n                \"is_active\":true\r\n            },\r\n            {  \r\n                \"code\":\"V003\",\r\n                \"sku\":\"V003\",\r\n                \"name\":\"Indomie goreng double\",\r\n                \"is_active\":true\r\n            }\r\n        ]\r\n    },\r\n    {  \r\n        \"code\":\"P002\",\r\n        \"name\":\"Roti\",\r\n        \"is_active\":false,\r\n        \"variants\":[  \r\n            {  \r\n                \"code\":\"V002\",\r\n                \"sku\":\"V002\",\r\n                \"name\":\"Roti bakar keju\",\r\n                \"is_active\":false\r\n            }\r\n        ]\r\n    }\r\n]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/backend/products/update/",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"backend",
+								"products",
+								"update",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 03:39:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "360"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"id\": 18,\n            \"name\": \"Indomie\",\n            \"is_active\": true,\n            \"variants\": {\n                \"variants\": [\n                    {\n                        \"id\": 12,\n                        \"sku\": \"V001\",\n                        \"name\": \"Indomie goreng single\",\n                        \"is_active\": true\n                    },\n                    {\n                        \"id\": 13,\n                        \"sku\": \"V003\",\n                        \"name\": \"Indomie goreng double\",\n                        \"is_active\": true\n                    }\n                ]\n            }\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Roti\",\n            \"is_active\": false,\n            \"variants\": {\n                \"variants\": [\n                    {\n                        \"id\": 14,\n                        \"sku\": \"V002\",\n                        \"name\": \"Roti bakar keju\",\n                        \"is_active\": false\n                    }\n                ]\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add / Update Group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"groups\": [\n        {\n            \"code\": \"34\",\n            \"name\": \"SPECIAL DRINK\",\n            \"parent\": \"2\"\n        },\n        {\n            \"code\": \"36\",\n            \"name\": \"HEALTY\",\n            \"parent\": \"2\"\n        },\n        {\n            \"code\": \"47\",\n            \"name\": \"IND BLACK\",\n            \"parent\": \"1\"\n        },\n        {\n            \"code\": \"48\",\n            \"name\": \"IND GOKIL\",\n            \"parent\": \"1\"\n        },\n        {\n            \"code\": \"51\",\n            \"name\": \"IND JENGKOL\",\n            \"parent\": \"1\"\n        },\n        {\n            \"code\": \"52\",\n            \"name\": \"IND UPNORMAL\",\n            \"parent\": \"1\"\n        },\n        {\n            \"code\": \"78\",\n            \"name\": \"MINUMAN BIASA\",\n            \"parent\": \"2\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/groups/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"groups",
+						"update"
+					]
+				},
+				"description": "API ini digunakan untuk menambahkan atau mengubah informasi Item Group."
+			},
+			"response": [
+				{
+					"name": "Success Add / Update Group",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token f89cc472a51090163e45699037bce4276d076734",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"groups\":[  \r\n    {  \r\n        \"code\":\"G001\",\r\n        \"name\":\"Food\"\r\n    },\r\n    {  \r\n        \"code\":\"G002\",\r\n        \"name\":\"Drink\"\r\n    },\r\n    {  \r\n        \"code\":\"G003\",\r\n        \"name\":\"Appetizer\",\r\n        \"parent\":\"G001\"\r\n    },\r\n    {  \r\n        \"code\":\"G004\",\r\n        \"name\":\"Others\",\r\n        \"parent\":\"G002\"\r\n    }\r\n]\r\n\r\n}\r\n"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/backend/groups/update",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"backend",
+								"groups",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 03:42:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14"
+						}
+					],
+					"cookie": [],
+					"body": "\"status: 'ok'\""
+				}
+			]
+		},
+		{
+			"name": "Add / Update Inventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"store_code\": \"DU001\",\r\n    \"inventories\": [\r\n        {\r\n            \"variant_code\": \"UP100001\",\r\n            \"price\": 18636,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100002\",\r\n            \"price\": 18636,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100014\",\r\n            \"price\": 18000,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100015\",\r\n            \"price\": 18000,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100016\",\r\n            \"price\": 18000,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100025\",\r\n            \"price\": 16364,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100026\",\r\n            \"price\": 16364,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100172\",\r\n            \"price\": 18500,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP100173\",\r\n            \"price\": 18500,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP500037\",\r\n            \"price\": 15000,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP500044\",\r\n            \"price\": 6363,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP500049\",\r\n            \"price\": 11000,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP500050\",\r\n            \"price\": 8636,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        },\r\n        {\r\n            \"variant_code\": \"UP500051\",\r\n            \"price\": 27000,\r\n            \"out_of_stock\": false,\r\n            \"is_active\": true\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/inventories/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"inventories",
+						"update"
+					]
+				},
+				"description": "API ini digunakan untuk menambahkan atau mengubah informasi Inventory untuk variant tertentu."
+			},
+			"response": [
+				{
+					"name": "Variant Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token f89cc472a51090163e45699037bce4276d076734",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"store_id\":3,\r\n\"inventories\":[  \r\n    {  \r\n        \"variant_code\":\"V010\",\r\n        \"price\":6000,\r\n        \"out_of_stock\":false,\r\n        \"is_active\":true\r\n    }\r\n]\r\n\r\n}\r\n"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/backend/inventories/update/",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"backend",
+								"inventories",
+								"update",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 03:44:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "116"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error_message\": \"Variant not found\",\n    \"error_code\": \"variant_not_found\",\n    \"errors\": {\n        \"variant_code\": \"Variant not found\"\n    }\n}"
+				},
+				{
+					"name": "Success Add / Update Inventory",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token f89cc472a51090163e45699037bce4276d076734",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"store_id\":3,\r\n\"inventories\":[  \r\n    {  \r\n        \"variant_code\":\"V001\",\r\n        \"price\":6000,\r\n        \"out_of_stock\":false,\r\n        \"is_active\":true\r\n    },\r\n    {  \r\n        \"variant_code\":\"V002\",\r\n        \"price\":6500,\r\n        \"out_of_stock\":false,\r\n        \"is_active\":true\r\n    }\r\n]\r\n\r\n}\r\n"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/backend/inventories/update/",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"backend",
+								"inventories",
+								"update",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 03:43:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14"
+						}
+					],
+					"cookie": [],
+					"body": "\"status: 'ok'\""
+				}
+			]
+		},
+		{
+			"name": "Get Order",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/store/orders/get/?last_order_id=0",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"store",
+						"orders",
+						"get",
+						""
+					],
+					"query": [
+						{
+							"key": "last_order_id",
+							"value": "0"
+						}
+					]
+				},
+				"description": "API ini digunakan untuk mengambil data order dari server\n\nlast_order_id harus disimpan agar tidak mengambil order id dari pertama\n\n"
+			},
+			"response": [
+				{
+					"name": "Success Get Order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token dtWpGmFzekA3djMSap4EFh0VeeriuTr6",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://orders.upnormal.co.id/api/store/orders/get/?last_order_id=0",
+							"protocol": "https",
+							"host": [
+								"orders",
+								"upnormal",
+								"co",
+								"id"
+							],
+							"path": [
+								"api",
+								"store",
+								"orders",
+								"get",
+								""
+							],
+							"query": [
+								{
+									"key": "last_order_id",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 07 Dec 2018 02:36:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "48539b287958c360-SIN"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"orders\": [\n        {\n            \"id\": 1,\n            \"number\": \"LU9YZKNX\",\n            \"total\": 12000,\n            \"tax\": 1200,\n            \"serviceCharge\": 0,\n            \"grandTotal\": 13200,\n            \"tableNumber\": \"A1\",\n            \"notes\": \"\",\n            \"status\": 30,\n            \"statusText\": \"Canceled\",\n            \"storeName\": \"Dipati Ukur Dev\",\n            \"userID\": 1,\n            \"created\": 1544054400,\n            \"paymentMethod\": 1,\n            \"paymentStatus\": 1,\n            \"items\": [\n                {\n                    \"id\": 1,\n                    \"notes\": \"\",\n                    \"subtotal\": 12000,\n                    \"quantity\": 2,\n                    \"variant\": {\n                        \"id\": 1,\n                        \"code\": \"V001\",\n                        \"sku\": \"V001\",\n                        \"name\": \"Indomie goreng single\",\n                        \"isActive\": true\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"number\": \"RHY9R3HX\",\n            \"total\": 19000,\n            \"tax\": 1900,\n            \"serviceCharge\": 0,\n            \"grandTotal\": 20900,\n            \"tableNumber\": \"A1\",\n            \"notes\": \"\",\n            \"status\": 1,\n            \"statusText\": \"New\",\n            \"storeName\": \"Dipati Ukur Dev\",\n            \"userID\": 1,\n            \"created\": 1544140800,\n            \"paymentMethod\": 1,\n            \"paymentStatus\": 1,\n            \"items\": [\n                {\n                    \"id\": 3,\n                    \"notes\": \"\",\n                    \"subtotal\": 6000,\n                    \"quantity\": 1,\n                    \"variant\": {\n                        \"id\": 1,\n                        \"code\": \"V001\",\n                        \"sku\": \"V001\",\n                        \"name\": \"Indomie goreng single\",\n                        \"isActive\": true\n                    }\n                },\n                {\n                    \"id\": 2,\n                    \"notes\": \"\",\n                    \"subtotal\": 13000,\n                    \"quantity\": 2,\n                    \"variant\": {\n                        \"id\": 3,\n                        \"code\": \"V002\",\n                        \"sku\": \"V002\",\n                        \"name\": \"Roti bakar keju\",\n                        \"isActive\": false\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"number\": \"84FE8KP3\",\n            \"total\": 92500,\n            \"tax\": 9250,\n            \"serviceCharge\": 0,\n            \"grandTotal\": 101750,\n            \"tableNumber\": \"A1\",\n            \"notes\": \"\",\n            \"status\": 1,\n            \"statusText\": \"New\",\n            \"storeName\": \"Dipati Ukur Dev\",\n            \"userID\": 1,\n            \"created\": 1544140800,\n            \"paymentMethod\": 1,\n            \"paymentStatus\": 1,\n            \"items\": [\n                {\n                    \"id\": 4,\n                    \"notes\": \"\",\n                    \"subtotal\": 60000,\n                    \"quantity\": 10,\n                    \"variant\": {\n                        \"id\": 1,\n                        \"code\": \"V001\",\n                        \"sku\": \"V001\",\n                        \"name\": \"Indomie goreng single\",\n                        \"isActive\": true\n                    }\n                },\n                {\n                    \"id\": 5,\n                    \"notes\": \"\",\n                    \"subtotal\": 32500,\n                    \"quantity\": 5,\n                    \"variant\": {\n                        \"id\": 3,\n                        \"code\": \"V002\",\n                        \"sku\": \"V002\",\n                        \"name\": \"Roti bakar keju\",\n                        \"isActive\": false\n                    }\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Order Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/store/orders/details?number=RRE2MM9W",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"store",
+						"orders",
+						"details"
+					],
+					"query": [
+						{
+							"key": "number",
+							"value": "RRE2MM9W"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Get Order Details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token MsxJ7zUwXeyDVrMpIKmHD9mpf1LLVDi8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://orders.upnormal.co.id/api/store/orders/details?number=RRE2MM9W",
+							"protocol": "https",
+							"host": [
+								"orders",
+								"upnormal",
+								"co",
+								"id"
+							],
+							"path": [
+								"api",
+								"store",
+								"orders",
+								"details"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "RRE2MM9W"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jan 2019 08:39:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "496dd5baaba69b9f-SJC"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"order\": {\n        \"id\": 284,\n        \"number\": \"RRE2MM9W\",\n        \"total\": 654560,\n        \"tax\": 65456,\n        \"serviceCharge\": 0,\n        \"grandTotal\": 720016,\n        \"tableNumber\": \"A11\",\n        \"notes\": \"\",\n        \"status\": 1,\n        \"statusText\": \"New\",\n        \"storeName\": \"Dipati Ukur Dev\",\n        \"userID\": 46,\n        \"created\": 1547109355,\n        \"paymentMethod\": 1,\n        \"paymentStatus\": 1,\n        \"user\": {\n            \"id\": 46,\n            \"name\": \"Hasan\",\n            \"phone\": \"+6285718991483\"\n        },\n        \"items\": [\n            {\n                \"id\": 389,\n                \"notes\": \"buat anak yatim ya , jangan pedas\",\n                \"subtotal\": 654560,\n                \"quantity\": 40,\n                \"variant\": {\n                    \"id\": 48,\n                    \"code\": \"UP100026\",\n                    \"sku\": \"UP100026\",\n                    \"name\": \"I BLACK KARI AYM\",\n                    \"isActive\": true\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Paid Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order\": \"JC34LHGL\"\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/store/orders/paid",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"store",
+						"orders",
+						"paid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Complete Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order\": \"LU9YZKNX\"\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/store/orders/complete",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"store",
+						"orders",
+						"complete"
+					]
+				},
+				"description": "API ini digunakan untuk mengirimkan perintah cancel order ke Server jika ada product yang kosong di Store"
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order\": \"HNA2T6RK\"\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/store/orders/confirm",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"store",
+						"orders",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order\": \"LU9YZKNX\"\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/store/orders/cancel",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"store",
+						"orders",
+						"cancel"
+					]
+				},
+				"description": "API ini digunakan untuk mengirimkan perintah order completed ke Server untuk order yang sudah dibayarkan dan diproses."
+			},
+			"response": [
+				{
+					"name": "Success Cancel Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token Xam2rSuTgvrYEBoH9mHzl4hs5YgeKbEX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"order\": 9191\n}"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/backend/orders/cancel",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"backend",
+								"orders",
+								"cancel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 04:17:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "223"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 10,\n    \"number\": \"9191\",\n    \"total\": 10000,\n    \"tax\": 1000,\n    \"service_charge\": 0,\n    \"grand_total\": 11000,\n    \"table_number\": \"A1\",\n    \"notes\": \"Jangan pedes\",\n    \"status\": 20,\n    \"status_text\": \"Canceled\",\n    \"store_id\": 3,\n    \"user_id\": 5,\n    \"created\": 1542153600\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "session "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": 1,\n    \"notes\": \"\",\n    \"table_number\": \"A1\",\n    \"store\": \"TJDEV001\",\n    \"merchant\": 1,\n    \"user\": \"vincent@ui.co.id\",\n    \"created\": \"2018-12-11\",\n    \"payment_method\": 1,\n    \"payment_status\": 1,\n    \"items\": [\n        {\n            \"code\": \"COMBOAY-1\",\n            \"quantity\": 10,\n            \"notes\": \"\"\n        },\n        {\n            \"code\": \"COMBOROTI2\",\n            \"quantity\": 10,\n            \"notes\": \"\"\n        }\n        \n    ]\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/mobile/orders/add",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"mobile",
+						"orders",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Add Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "session hlaveqt03qvyt91c4htintqfbxfsfx4b",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"9191\",\r\n    \"grand_total\": 11000,\r\n    \"total\": 10000,\r\n    \"tax\": 1000,\r\n    \"service_charge\": 0,\r\n    \"status\": 1,\r\n    \"notes\": \"Jangan pedes\",\r\n    \"table_number\": \"A1\",\r\n    \"store\": 3,\r\n    \"user\": \"vincent@ui.co.id\",\r\n    \"created\": \"2018-11-14\",\r\n    \"items\": [\r\n        {\r\n            \"code\": \"V001\",\r\n            \"subtotal\": 5000,\r\n            \"quantity\": 2,\r\n            \"notes\": \"\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/mobile/orders/add/",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"mobile",
+								"orders",
+								"add",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 03:49:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "207"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"order\": {\n        \"number\": \"9191\",\n        \"grand_total\": 11000,\n        \"total\": 10000,\n        \"tax\": 1000,\n        \"service_charge\": 0,\n        \"status\": \"New\",\n        \"notes\": \"Jangan pedes\",\n        \"store\": \"Store Vincent\",\n        \"table_number\": \"A1\",\n        \"user\": \"vincent@ui.co.id\"\n    }\n}"
+				},
+				{
+					"name": "Duplicate Invoice Number",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "session hlaveqt03qvyt91c4htintqfbxfsfx4b",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"9191\",\r\n    \"grand_total\": 11000,\r\n    \"total\": 10000,\r\n    \"tax\": 1000,\r\n    \"service_charge\": 0,\r\n    \"status\": 1,\r\n    \"notes\": \"Jangan pedes\",\r\n    \"table_number\": \"A1\",\r\n    \"store\": 3,\r\n    \"user\": \"vincent@ui.co.id\",\r\n    \"created\": \"2018-11-14\",\r\n    \"items\": [\r\n        {\r\n            \"code\": \"V001\",\r\n            \"subtotal\": 5000,\r\n            \"quantity\": 2,\r\n            \"notes\": \"\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "192.168.0.128:9000/api/mobile/orders/add/",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"mobile",
+								"orders",
+								"add",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 03:49:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "136"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error_message\": \"Order number already exists\",\n    \"error_code\": \"duplicate_order_number\",\n    \"errors\": {\n        \"__all__\": \"Order number already exists\"\n    }\n}"
+				},
+				{
+					"name": "Success Get Order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "token Xam2rSuTgvrYEBoH9mHzl4hs5YgeKbEX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "192.168.0.128:9000/api/backend/orders/get/?last_order_id=10",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"128"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"backend",
+								"orders",
+								"get",
+								""
+							],
+							"query": [
+								{
+									"key": "last_order_id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 14 Nov 2018 04:13:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "374"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"orders\": [\n        {\n            \"id\": 11,\n            \"number\": \"9192\",\n            \"total\": 10000,\n            \"tax\": 1000,\n            \"service_charge\": 0,\n            \"grand_total\": 11000,\n            \"table_number\": \"A1\",\n            \"notes\": \"Jangan pedes\",\n            \"status\": 1,\n            \"status_text\": \"New\",\n            \"store_id\": 3,\n            \"user_id\": 5,\n            \"created\": 1542153600,\n            \"items\": [\n                {\n                    \"id\": 10,\n                    \"notes\": \"\",\n                    \"subtotal\": 12000,\n                    \"quantity\": 2,\n                    \"variant\": {\n                        \"id\": 9,\n                        \"code\": \"V001\",\n                        \"sku\": \"001\",\n                        \"name\": \"variant 1\",\n                        \"is_active\": true\n                    }\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add / Update Variant Group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"groups\":[  \r\n    {  \r\n        \"code\":\"G001\",\r\n        \"variants\":[\"V001\", \"V002\"]\r\n    }\r\n]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/groups/set-variants",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"groups",
+						"set-variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Out of Stock Inventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "token "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"store\": \"DU001\",\r\n    \"code\": \"V002\",\r\n    \"out_of_stock\": false\r\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/inventories/update-out-of-stock",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"inventories",
+						"update-out-of-stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add/Update Group Aggregator Settings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "token f89cc472a51090163e45699037bce4276d076734",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"aggregator_settings\": [\r\n        {\r\n            \"group\": \"GOFOODCODE\",\r\n            \"type\": 2,\r\n            \"name\": \"GoFood Group\",\r\n            \"is_active\": true,\r\n            \"position\": 1\r\n        },\r\n        {\r\n            \"group\": \"GRABFOODCODE\",\r\n            \"type\": 1,\r\n            \"name\": \"GrabFood Group\",\r\n            \"is_active\": true,\r\n            \"position\": 1\r\n        },\r\n        {\r\n            \"group\": \"TOKOPEDIACODE\",\r\n            \"type\": 3,\r\n            \"name\": \"Tokopedia Group\",\r\n            \"is_active\": true,\r\n            \"position\": 1\r\n        },\r\n        {\r\n            \"group\": \"SHOPEEFOODCODE\",\r\n            \"type\": 4,\r\n            \"name\": \"Shopee Food Group\",\r\n            \"is_active\": true,\r\n            \"position\": 1\r\n        },\r\n        {\r\n            \"group\": \"SHOPEECODE\",\r\n            \"type\": 5,\r\n            \"name\": \"Shopee Group\",\r\n            \"is_active\": true,\r\n            \"position\": 1\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/groups/aggregator-settings/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"groups",
+						"aggregator-settings",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add/Update Variant Aggregator Settings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "token f89cc472a51090163e45699037bce4276d076734",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"aggregator_settings\": [\r\n        {\r\n            \"variant_code\": \"GOFOODCODE\",\r\n            \"type\": 2,\r\n            \"name\": \"Go Food 7\",\r\n            \"is_active\": true,\r\n            \"position\": 1,\r\n            \"sku\": \"SKU007\",\r\n            \"code\": \"V007\",\r\n            \"default_price\": 100000\r\n        },\r\n        {\r\n            \"variant_code\": \"GRABFOODCODE\",\r\n            \"type\": 1,\r\n            \"name\": \"GrabFood variant_code\",\r\n            \"is_active\": true,\r\n            \"position\": 1,\r\n            \"sku\": \"SKU007\",\r\n            \"code\": \"V007\",\r\n            \"default_price\": 100000\r\n        },\r\n        {\r\n            \"variant_code\": \"TOKOPEDIACODE\",\r\n            \"type\": 3,\r\n            \"name\": \"Tokopedia variant_code\",\r\n            \"is_active\": true,\r\n            \"position\": 1,\r\n            \"sku\": \"SKU007\",\r\n            \"code\": \"V007\",\r\n            \"default_price\": 100000\r\n        },\r\n        {\r\n            \"variant_code\": \"SHOPEEFOODCODE\",\r\n            \"type\": 4,\r\n            \"name\": \"Shopee Food variant_code\",\r\n            \"is_active\": true,\r\n            \"position\": 1,\r\n            \"sku\": \"SKU007\",\r\n            \"code\": \"V007\",\r\n            \"default_price\": 100000\r\n        },\r\n        {\r\n            \"variant_code\": \"SHOPEECODE\",\r\n            \"type\": 5,\r\n            \"name\": \"Shopee variant_code\",\r\n            \"is_active\": true,\r\n            \"position\": 1,\r\n            \"sku\": \"SKU007\",\r\n            \"code\": \"V007\",\r\n            \"default_price\": 100000\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/products/variants/aggregator-settings/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"products",
+						"variants",
+						"aggregator-settings",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add/Update Inventory Aggregator Settings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "token f89cc472a51090163e45699037bce4276d076734",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"store_code\": \"STORE\",\r\n    \"type\": 2,\r\n    \"aggregator_settings\": [\r\n        {\r\n            \"variant_code\": \"V001\",\r\n            \"price\": 20000,\r\n            \"is_active\": true\r\n        }\r\n    ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/inventories/aggregator-settings/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"inventories",
+						"aggregator-settings",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add/Update Modifier Aggregator Settings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "token 90bad58e17d15f9fe7a6d30386d9dde918e5a9cd",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": 1,\r\n    \"aggregator_settings\": [\r\n        {\r\n            \"modifier_group_code\": \"ADDON\",\r\n            \"position\": 1,\r\n            \"is_active\": false\r\n        }\r\n    ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://staging-omni.stamps.id/api/backend/modifier-groups/aggregator-settings/update",
+					"protocol": "https",
+					"host": [
+						"staging-omni",
+						"stamps",
+						"id"
+					],
+					"path": [
+						"api",
+						"backend",
+						"modifier-groups",
+						"aggregator-settings",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
