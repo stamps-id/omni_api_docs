@@ -3,7 +3,7 @@ training:
   - group: Ordering System
     expanded: true
     pages:
-      - page: openapi/omniapi.yaml/*
+      - page: ./openapi/omniapi.yaml/*
       # - group: Inventory
       #   expanded: true
       #   pages:
