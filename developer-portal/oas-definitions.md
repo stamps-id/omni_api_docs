@@ -6,7 +6,7 @@ Define that in the `siteConfig.yaml` file.
 
 ```yaml
 oasDefinitions:
-  petstore: ./openapi/petstore.yaml
+  omniapi: ./openapi/omniapi.yaml
 ```
 
 Notice that the petstore is pointing to an API definition on the local filesystem.
@@ -26,7 +26,7 @@ Or else, add it to the local file system.
 
 ```yaml
 oasDefinitions:
-  petstore: ./openapi/petstore.yaml
+  omniapi: ./openapi/omniapi.yaml
   ultra: ./openapi/ultra-api.yaml
   max: https://example.com/max/openapi.yaml
 ```
@@ -40,7 +40,7 @@ The contents utilize the key `petstore` defined in the `siteConfig.yaml`.
 
 ```yaml
 type: reference-docs
-definitionId: petstore
+definitionId: omniapi
 ```
 
 That provides the additional metadata we need to render the API.

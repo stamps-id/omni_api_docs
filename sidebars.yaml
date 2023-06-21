@@ -3,53 +3,27 @@ training:
   - group: Ordering System
     expanded: true
     pages:
-      - group: Inventory
-        expanded: true
-        pages:
-          - label: Add / Update Inventory
-            page:
-          - label: Update Out of Stock Inventory
-            page:
-          - label: Add / Update Inventory Aggregator Settings
-            page: developer-portal/inventory-settings.md
-      - group: Group
-        expanded: true
-        pages:
-          - label: Add / Update Group
-            page:
-          - label: Add / Update Group Aggregator Settings
-            page:
-      - group: Order
-        expanded: true
-        pages:
-          - label: Get Order 
-            page:
-          - label: Get Order Details
-            page:
-          - label: Cancel Order
-            page:
-          - label: Add Order
-            page:
-          - label: Paid Order
-            page:
-          - label: Complete Order
-            page:
-          - label: Confirm Order
-            page:
-      - group: Product and Variant
-        expanded: true
-        pages:
-          - label: Add / Update Product & Variant
-            page:
-          - label: Add / Update Variant Aggregator Settings
-            page:
-          - label: Add / Update Variant Group
-            page:
-      - group: Modifier
-        expanded: true
-        pages:
-          - label: Add / Update Modifier Aggregator Settings
-            page:
+      - page: openapi/omniapi.yaml/*
+      # - group: Inventory
+      #   expanded: true
+      #   pages:
+      #     - page: openapi/inventory-reference.page.yaml/*
+      # - group: Group
+      #   expanded: true
+      #   pages:
+      #     - page: openapi/group-reference.page.yaml/*
+      # - group: Order
+      #   expanded: true
+      #   pages:
+      #     - page: openapi/order-reference.page.yaml/*
+      # - group: Product and Variant
+      #   expanded: true
+      #   pages:
+      #     - page: openapi/product_variant-reference.page.yaml/*
+      # - group: Modifier
+      #   expanded: true
+      #   pages:
+      #     - page: openapi/modifier-reference.page.yaml/*
 
       # - label: Setup
       #   page: developer-portal/setup.md
@@ -86,11 +60,3 @@ training:
       #   page: developer-portal/mdx.mdx
       # - label: Creating React components
       #   page: developer-portal/custom-component.mdx
-  - group: Petstore reference
-    expanded: false
-    pages:
-      - page: openapi/reference.page.yaml/*
-
-# alternative:
-#   - page: developer-portal/sidebar-alternative.md
-#     label: Alternative sidebar example
