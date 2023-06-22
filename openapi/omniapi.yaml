@@ -1,14 +1,14 @@
 openapi: 3.0.3
 servers:
-  - url: ''
+  - url: '//petstore.swagger.io/v2'
 info:
   description: >-
-    This is a documentation for Stamp's Omni Ordering System API.  You can find out more about
+    This is a sample server Petstore server.  You can find out more about
     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net,
     #swagger](http://swagger.io/irc/).  For this sample, you can use the api key
     `special-key` to test the authorization filters.
   version: 1.0.0
-  title: Ordering System API
+  title: Overview
   termsOfService: 'http://swagger.io/terms/'
   contact:
     email: apiteam@swagger.io
@@ -17,7 +17,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: Inventory
-    description: Everything about our product, 
+    description: Everything about your Pets
     externalDocs:
       description: Find out more
       url: 'http://swagger.io'
@@ -29,18 +29,22 @@ tags:
       description: Find out more about our store
       url: 'http://swagger.io'
   - name: Product and Variant
-    description: Access to Petstore orders
+    description: Operations about user
+    externalDocs:
+      description: Find out more about our store
+      url: 'http://swagger.io'
   - name: Modifier
-    description: Access to Petstore orders
-  - name: pets
-    description: Access to Petstore orders
+    description: Operations about user
+    externalDocs:
+      description: Find out more about our store
+      url: 'http://swagger.io'
 paths:
   /inventory:
     post:
       tags:
         - Inventory
       summary: Add / Update Inventory
-      description: 'test'
+      description: ''
       operationId: addInventory
       responses:
         '200':
@@ -53,12 +57,13 @@ paths:
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
+  /inventory/update:
     post:
       tags:
         - Inventory
       summary: Update Out of Stock Inventory
-      description: 'test'
-      operationId: updateOutofstock
+      description: ''
+      operationId: updateInventory
       responses:
         '200':
           description: OK
@@ -74,288 +79,356 @@ paths:
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
+  /pet/addInventorySettings:
     post:
       tags:
         - Inventory
       summary: Add / Update Inventory Aggregator Settings
-      description: 'test'
-      operationId: updatePet
+      description: Multiple status values can be provided with comma separated strings
+      operationId: addInventorySettings
+      parameters:
+        - name: status
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - available
+                - pending
+                - sold
+              default: available
       responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
+          description: Invalid status value
       security:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-      requestBody:
-        $ref: '#/components/requestBodies/Pet'
-  /group:
+  
+  /group/addGroup:
     post:
       tags:
         - Group
       summary: Add / Update Group
-      description: 'test'
+      description: Returns a map of status codes to quantities
       operationId: addGroup
       responses:
         '200':
-          description: OK
-        '405':
-          description: Invalid input
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int32
       security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
-      requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        - api_key: []
+  /group/addGroupSettings:
     post:
       tags:
         - Group
       summary: Add / Update Group Aggregator Settings
-      description: 'test'
+      description: ''
       operationId: addGroupSettings
       responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Order'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+          description: Invalid Order
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+        description: order placed for purchasing the pet
+        required: true
   /order:
     get:
       tags:
         - Order
       summary: Get Order
-      description: 'test'
+      description: This can only be done by the logged in user.
       operationId: getOrder
       responses:
-        '200':
-          description: OK
-        '405':
-          description: Invalid input
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        default:
+          description: successful operation
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Created user object
+        required: true
+  /order/getOrderDetails:
     get:
       tags:
         - Order
       summary: Get Order Details
-      description: 'tests'
+      description: ''
       operationId: getOrderDetails
       responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        default:
+          description: successful operation
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        $ref: '#/components/requestBodies/UserArray'
+  /order/paidOrder:
     post:
       tags:
         - Order
       summary: Paid Order
-      description: 'test'
+      description: ''
       operationId: paidOrder
       responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        default:
+          description: successful operation
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        $ref: '#/components/requestBodies/UserArray'
+  /order/completeOrder:
     post:
       tags:
         - Order
       summary: Complete Order
-      description: 'tset'
+      description: ''
       operationId: completeOrder
+      parameters:
+        - name: username
+          in: query
+          description: The user name for login
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: The password for login in clear text
+          required: true
+          schema:
+            type: string
       responses:
         '200':
-          description: OK
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
-      requestBody:
-        $ref: '#/components/requestBodies/Pet'
+          description: Invalid username/password supplied
+  /order/confirmOrder:
     post:
       tags:
         - Order
       summary: Confirm Order
-      description: 'tes'
+      description: ''
       operationId: confirmOrder
       responses:
+        default:
+          description: successful operation
+  /order/cancelOrder:
+    post:
+      tags:
+        - Order
+      summary: Cancel Order
+      description: ''
+      operationId: cancelOrder
+      parameters:
+        - name: username
+          in: path
+          description: 'The name that needs to be fetched. Use user1 for testing. '
+          required: true
+          schema:
+            type: string
+      responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         '400':
-          description: Invalid ID supplied
+          description: Invalid username supplied
         '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
-      requestBody:
-        $ref: '#/components/requestBodies/Pet'
+          description: User not found
+  /order/addOrder:
     post:
       tags:
         - Order
       summary: Add Order
-      description: 'test'
+      description: This can only be done by the logged in user.
       operationId: addOrder
+      parameters:
+        - name: username
+          in: path
+          description: name that need to be updated
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
         '400':
-          description: Invalid ID supplied
+          description: Invalid user supplied
         '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+          description: User not found
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
-    post:
-      tags:
-        - Order
-      summary: Paid Order
-      description: test
-      operationId: paidOrder
-      responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
-      requestBody:
-        $ref: '#/components/requestBodies/Pet'
-  /product-variant:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+  /product_variant:
     post:
       tags:
         - Product and Variant
       summary: Add / Update Product & Variant
-      description: test
+      description: This can only be done by the logged in user.
       operationId: addProduct
-      responses:
-        '200':
-          description: OK
-        '405':
-          description: Invalid input
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
-      requestBody:
-        $ref: '#/components/requestBodies/Pet'
-    post:
-      tags:
-        - Product and Variant
-      summary: Add / Update Variant Group
-      description: test
-      operationId: updateVariantGroup
+      parameters:
+        - name: username
+          in: path
+          description: name that need to be updated
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
         '400':
-          description: Invalid ID supplied
+          description: Invalid user supplied
         '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+          description: User not found
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+  /product_variant/addVariantSettings:
     post:
       tags:
         - Product and Variant
       summary: Add / Update Variant Aggregator Settings
-      description: test
+      description: This can only be done by the logged in user.
       operationId: addVariantSettings
+      parameters:
+        - name: username
+          in: path
+          description: name that need to be updated
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
         '400':
-          description: Invalid ID supplied
+          description: Invalid user supplied
         '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+          description: User not found
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+  /product_variant/addVariantGroup:
+    post:
+      tags:
+        - Product and Variant
+      summary: Add / Update Variant Group
+      description: This can only be done by the logged in user.
+      operationId: addVariantGroup
+      parameters:
+        - name: username
+          in: path
+          description: name that need to be updated
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
   /modifier:
     post:
       tags:
         - Modifier
       summary: Add / Update Modifier Aggregator Settings
-      description: test
+      description: This can only be done by the logged in user.
       operationId: addModifierSettings
+      parameters:
+        - name: username
+          in: path
+          description: name that need to be updated
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
-        '405':
-          description: Invalid input
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
