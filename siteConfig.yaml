@@ -14,7 +14,7 @@ logo:
 toc:
   enable: true
 oasDefinitions:
-  omniapi: ./openapi/omniapi.yaml
+  omniapi: openapi/omniapi.yaml
 stylesheets:
   - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap
   - https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600,700&display=swap

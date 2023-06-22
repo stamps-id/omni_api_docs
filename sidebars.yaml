@@ -3,4 +3,4 @@ training:
   - group: Ordering System
     expanded: true
     pages:
-      - page: ./openapi/omniapi.yaml/*
+      - page: openapi/reference.page.yaml/*
