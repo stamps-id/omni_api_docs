@@ -40,7 +40,7 @@ The contents utilize the key `petstore` defined in the `siteConfig.yaml`.
 
 ```yaml
 type: reference-docs
-definitionId: petstore
+definitionId: omniapi
 ```
 
 That provides the additional metadata we need to render the API.

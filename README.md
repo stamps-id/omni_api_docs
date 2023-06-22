@@ -1,6 +1,4 @@
-# omni_api_docs
-
-> Copied from Redocly API developer portal
+# Redocly API developer portal
 
 ## Prerequisites
 

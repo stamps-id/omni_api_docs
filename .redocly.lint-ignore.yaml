@@ -1,9 +1,0 @@
-# This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
-# See https://redoc.ly/docs/cli/ for more information.
-openapi/omniapi.yaml:
-  spec:
-    - '#/'
-  no-unresolved-refs:
-    - '#/paths/~1inventory/post/requestBody'
-  security-defined:
-    - '#/paths/~1inventory/post/security/0/petstore_auth'
