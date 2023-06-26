@@ -1,8 +1,8 @@
 ---
-title: Omni API
+title: Omni Ordering System
 ---
 
-# Omni Ordering System API
+# Training program
 
 This interactive training program is designed to help you understand how to create and edit content using Redocly's developer portal.
 It's a great companion to our [developer portal docs](https://docs.redoc.ly/developer-portal/introduction/).
