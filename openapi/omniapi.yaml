@@ -49,8 +49,8 @@ paths:
       responses:
         '200':
           description: OK
-        '405':
-          description: Invalid input
+        '400':
+          description: Store not found, There is no inventories to be updated, cannot find variant with code {Vairant Code}
       security:
         - petstore_auth:
             - 'write:pets'
@@ -68,18 +68,14 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
+          description: Store is inactive, {code} is not a valid variant in store {store.code}
       security:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  /pet/addInventorySettings:
+  /inventory/addInventorySettings:
     post:
       tags:
         - Inventory
@@ -116,7 +112,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Pet'
         '400':
-          description: Invalid status value
+          description: Can't find variant {variant_code} in store {self.store.name}
       security:
         - petstore_auth:
             - 'write:pets'
@@ -139,6 +135,8 @@ paths:
                 additionalProperties:
                   type: integer
                   format: int32
+        '400':
+          description: 'Invalid Group assignment: {parent}, Parent group not found'
       security:
         - api_key: []
   /group/addGroupSettings:
@@ -159,7 +157,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Order'
         '400':
-          description: Invalid Order
+          description: 'Duplicate aggregator settings: {AggregatorType(aggregator_setting["type"]).label} settings for group {aggregator_setting["group"]} already exists in this request, Field "aggregator_setting" is not a valid JSON array '
       requestBody:
         content:
           application/json:
@@ -175,8 +173,10 @@ paths:
       description: This can only be done by the logged in user.
       operationId: getOrder
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: 'Please wait for a minutes and try again'
       requestBody:
         content:
           application/json:
@@ -192,8 +192,10 @@ paths:
       description: ''
       operationId: getOrderDetails
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Invalid last order id
       requestBody:
         $ref: '#/components/requestBodies/UserArray'
   /order/paidOrder:
@@ -204,8 +206,10 @@ paths:
       description: ''
       operationId: paidOrder
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Order not found, Order already paid
       requestBody:
         $ref: '#/components/requestBodies/UserArray'
   /order/completeOrder:
@@ -250,7 +254,7 @@ paths:
               schema:
                 type: string
         '400':
-          description: Invalid username/password supplied
+          description: Order not found, Order already completed, Order already canceled
   /order/confirmOrder:
     post:
       tags:
@@ -259,8 +263,10 @@ paths:
       description: ''
       operationId: confirmOrder
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Order not found, Order already completed, Order already canceled
   /order/cancelOrder:
     post:
       tags:
@@ -286,9 +292,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          description: Invalid username supplied
-        '404':
-          description: User not found
+          description: Order not found, Order already canceled
   /order/addOrder:
     post:
       tags:
@@ -307,9 +311,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: Sorry, the following item(s) are not available., Please wait for a few seconds and try again
       requestBody:
         content:
           application/json:
@@ -363,9 +365,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: 'Duplicate aggregator settings: {AggregatorType(aggregator_setting["type"]).label} settings for group {aggregator_setting["group"]} already exists in this request, Variant {variant_code} not found, please try again'
       requestBody:
         content:
           application/json:
@@ -391,9 +391,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: "extra data" must be a JSON dictionary ({}), "dimension" must be a JSON dictionary ({}), "dimension.{key}" is an invalid field, "dimension.{key}" must be a float or integer
       requestBody:
         content:
           application/json:
@@ -419,9 +417,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: 'Invalid type, Invalid aggregator settings format (expected JSON array), Duplicate aggregator settings: {AggregatorType(aggregator_setting["type"]).label} settings for group {aggregator_setting["group"]} already exists in this request, Can't find modifier group {",". join (invalid_modifier_group_code)} in merchant {merchant.name})'
       requestBody:
         content:
           application/json:
@@ -432,6 +428,12 @@ paths:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
+
+
+# --------------
+# | Components | 
+# v            v 
+
 components:
   responses:
     PetResponse:

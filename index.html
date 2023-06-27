@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@latest/bundles/redoc.standalone.js"></script>
+  </head>
+  <body>
+    <redoc spec-url="openapi/omniapi.yaml"></redoc>
+    <script>
+      Redoc.init({
+        sidebar: {
+          enabled: true,
+          default: 'overview',
+          $ref: sidebars.yaml
+        },
+      });
+    </script>
+  </body>
+</html>
