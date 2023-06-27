@@ -39,7 +39,7 @@ tags:
       description: Find out more about our store
       url: 'http://swagger.io'
 paths:
-  /inventory:
+  /api/backend/inventories/update:
     post:
       tags:
         - Inventory
@@ -57,7 +57,7 @@ paths:
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  /inventory/update:
+  /api/backend/inventories/update-out-of-stock:
     post:
       tags:
         - Inventory
@@ -75,7 +75,7 @@ paths:
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  /pet/addInventorySettings:
+  /api/backend/inventories/aggregator-settings/update:
     post:
       tags:
         - Inventory
@@ -118,7 +118,7 @@ paths:
             - 'write:pets'
             - 'read:pets'
   
-  /group/addGroup:
+  /api/backend/groups/update:
     post:
       tags:
         - Group
@@ -139,7 +139,7 @@ paths:
           description: 'Invalid group assignment: {parent}, Parent group not found'
       security:
         - api_key: []
-  /group/addGroupSettings:
+  /api/backend/groups/aggregator-settings/update:
     post:
       tags:
         - Group
@@ -165,7 +165,7 @@ paths:
               $ref: '#/components/schemas/Order'
         description: order placed for purchasing the pet
         required: true
-  /order:
+  /api/store/orders/get/?last_order_id=0:
     get:
       tags:
         - Order
