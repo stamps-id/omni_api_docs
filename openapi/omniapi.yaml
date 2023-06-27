@@ -254,7 +254,7 @@ paths:
               schema:
                 type: string
         '400':
-          description: Invalid username/password supplied
+          description: Order not found, Order already completed, Order already canceled
   /order/confirmOrder:
     post:
       tags:
@@ -263,8 +263,10 @@ paths:
       description: ''
       operationId: confirmOrder
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Order not found, Order has been {order.get_status_display().lower()}
   /order/cancelOrder:
     post:
       tags:
@@ -290,9 +292,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          description: Invalid username supplied
-        '404':
-          description: User not found
+          description: Order not found, Order already cancled
   /order/addOrder:
     post:
       tags:
@@ -311,9 +311,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: Sorry, the following item(s) are not available, Pkease wait for a few seconds and try again
       requestBody:
         content:
           application/json:
@@ -338,10 +336,6 @@ paths:
       responses:
         '200':
           description: OK
-        '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
       requestBody:
         content:
           application/json:
@@ -367,9 +361,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: 'Duplicate aggregator settings: {AggregatorType(aggregator_setting["group"]).label} settings for group {aggregator_setting["group"]} already exists in this request'
       requestBody:
         content:
           application/json:
@@ -395,9 +387,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: "extra data" must be a JSON dictionary ({}), "dimension" must be a JSON dictionary ({}), "dimension.{key}" is an invalid field, "dimension.{key}" must be a float or integer
       requestBody:
         content:
           application/json:
@@ -423,9 +413,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: 'Invalid Type, Invalid aggregator settings format (expected JSON array), Duplicate aggregator settings: {AggregatorType(aggregator_setting["group"]).label} settings for group {aggregator_setting["group"]} already exists in this request, Can't find modifier group {",".join(invalid_modifier_group_code)} in merchant "{merchant.name}"'
       requestBody:
         content:
           application/json:
