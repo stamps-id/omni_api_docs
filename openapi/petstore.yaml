@@ -8,7 +8,7 @@ info:
     #swagger](http://swagger.io/irc/).  For this sample, you can use the api key
     `special-key` to test the authorization filters.
   version: 1.0.0
-  title: Overview
+  title: Swagger Petstore
   termsOfService: 'http://swagger.io/terms/'
   contact:
     email: apiteam@swagger.io
@@ -16,36 +16,26 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  - name: Inventory
+  - name: pet
     description: Everything about your Pets
     externalDocs:
       description: Find out more
       url: 'http://swagger.io'
-  - name: Group
+  - name: store
     description: Access to Petstore orders
-  - name: Order
-    description: Operations about user
-    externalDocs:
-      description: Find out more about our store
-      url: 'http://swagger.io'
-  - name: Product and Variant
-    description: Operations about user
-    externalDocs:
-      description: Find out more about our store
-      url: 'http://swagger.io'
-  - name: Modifier
+  - name: user
     description: Operations about user
     externalDocs:
       description: Find out more about our store
       url: 'http://swagger.io'
 paths:
-  /inventory:
+  /pet:
     post:
       tags:
-        - Inventory
-      summary: Add / Update Inventory
-      description: ''
-      operationId: addInventory
+        - pet
+      summary: Add a new pet to the store
+      description: test
+      operationId: addPet
       responses:
         '200':
           description: OK
@@ -57,13 +47,12 @@ paths:
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  /inventory/update:
-    post:
+    put:
       tags:
-        - Inventory
-      summary: Update Out of Stock Inventory
-      description: ''
-      operationId: updateInventory
+        - pet
+      summary: Update an existing pet
+      description: test
+      operationId: updatePet
       responses:
         '200':
           description: OK
@@ -79,13 +68,13 @@ paths:
             - 'read:pets'
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  /pet/addInventorySettings:
-    post:
+  /pet/findByStatus:
+    get:
       tags:
-        - Inventory
-      summary: Add / Update Inventory Aggregator Settings
+        - pet
+      summary: Finds Pets by status
       description: Multiple status values can be provided with comma separated strings
-      operationId: addInventorySettings
+      operationId: findPetsByStatus
       parameters:
         - name: status
           in: query
@@ -121,14 +110,177 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  
-  /group/addGroup:
+  /pet/findByTags:
+    get:
+      tags:
+        - pet
+      summary: Finds Pets by tags
+      description: >-
+        Muliple tags can be provided with comma separated strings. Use tag1,
+        tag2, tag3 for testing.
+      operationId: findPetsByTags
+      parameters:
+        - name: tags
+          in: query
+          description: Tags to filter by
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          $ref: "#/components/responses/PetResponse"
+        '400':
+          description: Invalid tag value
+      security:
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+      deprecated: true
+  '/pet/{petId}':
+    get:
+      tags:
+        - pet
+      summary: Find pet by ID
+      description: Returns a single pet
+      operationId: getPetById
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+      security:
+        - api_key: []
     post:
       tags:
-        - Group
-      summary: Add / Update Group
+        - pet
+      summary: Updates a pet in the store with form data
+      description: test
+      operationId: updatePetWithForm
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+        '405':
+          description: Invalid input
+      security:
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Updated name of the pet
+                  type: string
+                status:
+                  description: Updated status of the pet
+                  type: string
+    delete:
+      tags:
+        - pet
+      summary: Deletes a pet
+      description: test
+      operationId: deletePet
+      parameters:
+        - name: api_key
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: petId
+          in: path
+          description: Pet id to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+      security:
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+  '/pet/{petId}/uploadImage':
+    post:
+      tags:
+        - pet
+      summary: uploads an image
+      description: test
+      operationId: uploadFile
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      security:
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                additionalMetadata:
+                  description: Additional data to pass to server
+                  type: string
+                file:
+                  description: file to upload
+                  type: string
+                  format: binary
+  /store/inventory:
+    get:
+      tags:
+        - store
+      summary: Returns pet inventories by status
       description: Returns a map of status codes to quantities
-      operationId: addGroup
+      operationId: getInventory
       responses:
         '200':
           description: successful operation
@@ -141,13 +293,13 @@ paths:
                   format: int32
       security:
         - api_key: []
-  /group/addGroupSettings:
+  /store/order:
     post:
       tags:
-        - Group
-      summary: Add / Update Group Aggregator Settings
-      description: ''
-      operationId: addGroupSettings
+        - store
+      summary: Place an order for a pet
+      description: test
+      operationId: placeOrder
       responses:
         '200':
           description: successful operation
@@ -167,13 +319,70 @@ paths:
               $ref: '#/components/schemas/Order'
         description: order placed for purchasing the pet
         required: true
-  /order:
+  '/store/order/{orderId}':
     get:
       tags:
-        - Order
-      summary: Get Order
+        - store
+      summary: Find purchase order by ID
+      description: >-
+        For valid response try integer IDs with value >= 1 and <= 10. Other
+        values will generated exceptions
+      operationId: getOrderById
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of pet that needs to be fetched
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 10
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Order'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+    delete:
+      tags:
+        - store
+      summary: Delete purchase order by ID
+      description: >-
+        For valid response try integer IDs with positive integer value. Negative
+        or non-integer values will generate API errors
+      operationId: deleteOrder
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of the order that needs to be deleted
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+  /user:
+    post:
+      tags:
+        - user
+      summary: Create user
       description: This can only be done by the logged in user.
-      operationId: getOrder
+      operationId: createUser
       responses:
         default:
           description: successful operation
@@ -184,37 +393,37 @@ paths:
               $ref: '#/components/schemas/User'
         description: Created user object
         required: true
-  /order/getOrderDetails:
+  /user/createWithArray:
+    post:
+      tags:
+        - user
+      summary: Creates list of users with given input array
+      description: test
+      operationId: createUsersWithArrayInput
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        $ref: '#/components/requestBodies/UserArray'
+  /user/createWithList:
+    post:
+      tags:
+        - user
+      summary: Creates list of users with given input array
+      description: test
+      operationId: createUsersWithListInput
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        $ref: '#/components/requestBodies/UserArray'
+  /user/login:
     get:
       tags:
-        - Order
-      summary: Get Order Details
-      description: ''
-      operationId: getOrderDetails
-      responses:
-        default:
-          description: successful operation
-      requestBody:
-        $ref: '#/components/requestBodies/UserArray'
-  /order/paidOrder:
-    post:
-      tags:
-        - Order
-      summary: Paid Order
-      description: ''
-      operationId: paidOrder
-      responses:
-        default:
-          description: successful operation
-      requestBody:
-        $ref: '#/components/requestBodies/UserArray'
-  /order/completeOrder:
-    post:
-      tags:
-        - Order
-      summary: Complete Order
-      description: ''
-      operationId: completeOrder
+        - user
+      summary: Logs user into the system
+      description: test
+      operationId: loginUser
       parameters:
         - name: username
           in: query
@@ -251,23 +460,23 @@ paths:
                 type: string
         '400':
           description: Invalid username/password supplied
-  /order/confirmOrder:
-    post:
+  /user/logout:
+    get:
       tags:
-        - Order
-      summary: Confirm Order
-      description: ''
-      operationId: confirmOrder
+        - user
+      summary: Logs out current logged in user session
+      description: test
+      operationId: logoutUser
       responses:
         default:
           description: successful operation
-  /order/cancelOrder:
-    post:
+  '/user/{username}':
+    get:
       tags:
-        - Order
-      summary: Cancel Order
-      description: ''
-      operationId: cancelOrder
+        - user
+      summary: Get user by user name
+      description: test
+      operationId: getUserByName
       parameters:
         - name: username
           in: path
@@ -289,13 +498,12 @@ paths:
           description: Invalid username supplied
         '404':
           description: User not found
-  /order/addOrder:
-    post:
+    put:
       tags:
-        - Order
-      summary: Add Order
+        - user
+      summary: Updated user
       description: This can only be done by the logged in user.
-      operationId: addOrder
+      operationId: updateUser
       parameters:
         - name: username
           in: path
@@ -317,17 +525,16 @@ paths:
               $ref: '#/components/schemas/User'
         description: Updated user object
         required: true
-  /product_variant:
-    post:
+    delete:
       tags:
-        - Product and Variant
-      summary: Add / Update Product & Variant
+        - user
+      summary: Delete user
       description: This can only be done by the logged in user.
-      operationId: addProduct
+      operationId: deleteUser
       parameters:
         - name: username
           in: path
-          description: name that need to be updated
+          description: The name that needs to be deleted
           required: true
           schema:
             type: string
@@ -335,100 +542,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: Invalid user supplied
+          description: Invalid username supplied
         '404':
           description: User not found
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
-  /product_variant/addVariantSettings:
-    post:
-      tags:
-        - Product and Variant
-      summary: Add / Update Variant Aggregator Settings
-      description: This can only be done by the logged in user.
-      operationId: addVariantSettings
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
-  /product_variant/addVariantGroup:
-    post:
-      tags:
-        - Product and Variant
-      summary: Add / Update Variant Group
-      description: This can only be done by the logged in user.
-      operationId: addVariantGroup
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
-  /modifier:
-    post:
-      tags:
-        - Modifier
-      summary: Add / Update Modifier Aggregator Settings
-      description: This can only be done by the logged in user.
-      operationId: addModifierSettings
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
