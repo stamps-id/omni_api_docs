@@ -184,7 +184,7 @@ paths:
               $ref: '#/components/schemas/User'
         description: Created user object
         required: true
-  /order/getOrderDetails:
+  /api/store/orders/details?number=RRE2MM9W:
     get:
       tags:
         - Order
@@ -198,7 +198,7 @@ paths:
           description: Invalid last order id
       requestBody:
         $ref: '#/components/requestBodies/UserArray'
-  /order/paidOrder:
+  /api/store/orders/paid:
     post:
       tags:
         - Order
@@ -212,7 +212,7 @@ paths:
           description: Order not found, Order already paid
       requestBody:
         $ref: '#/components/requestBodies/UserArray'
-  /order/completeOrder:
+  /api/store/orders/complete:
     post:
       tags:
         - Order
@@ -255,7 +255,7 @@ paths:
                 type: string
         '400':
           description: Invalid username/password supplied
-  /order/confirmOrder:
+  /api/store/orders/confirm:
     post:
       tags:
         - Order
@@ -265,7 +265,7 @@ paths:
       responses:
         default:
           description: successful operation
-  /order/cancelOrder:
+  /api/store/orders/cancel:
     post:
       tags:
         - Order
@@ -293,7 +293,7 @@ paths:
           description: Invalid username supplied
         '404':
           description: User not found
-  /order/addOrder:
+  /api/mobile/orders/add:
     post:
       tags:
         - Order
@@ -321,7 +321,7 @@ paths:
               $ref: '#/components/schemas/User'
         description: Updated user object
         required: true
-  /product_variant:
+  /api/backend/products/update:
     post:
       tags:
         - Product and Variant
@@ -349,7 +349,7 @@ paths:
               $ref: '#/components/schemas/User'
         description: Updated user object
         required: true
-  /product_variant/addVariantSettings:
+  /api/backend/products/variants/aggregator-settings/update:
     post:
       tags:
         - Product and Variant
@@ -377,7 +377,7 @@ paths:
               $ref: '#/components/schemas/User'
         description: Updated user object
         required: true
-  /product_variant/addVariantGroup:
+  /api/backend/groups/set-variants:
     post:
       tags:
         - Product and Variant
@@ -405,7 +405,7 @@ paths:
               $ref: '#/components/schemas/User'
         description: Updated user object
         required: true
-  /modifier:
+  /api/backend/modifier-groups/aggregator-settings/update:
     post:
       tags:
         - Modifier
