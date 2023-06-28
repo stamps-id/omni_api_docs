@@ -56,7 +56,7 @@ paths:
             - 'write:pets'
             - 'read:pets'
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        $ref: '#/components/requestBodies/AddInventory'
   /api/backend/inventories/update-out-of-stock:
     post:
       tags:
@@ -74,7 +74,7 @@ paths:
             - 'write:pets'
             - 'read:pets'
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        $ref: '#/components/requestBodies/OosInventory'
   /api/backend/inventories/aggregator-settings/update:
     post:
       tags:
@@ -82,42 +82,17 @@ paths:
       summary: Add / Update Inventory Aggregator Settings
       description: Multiple status values can be provided with comma separated strings
       operationId: addInventorySettings
-      parameters:
-        - name: status
-          in: query
-          description: Status values that need to be considered for filter
-          required: true 
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - available
-                - pending
-                - sold
-              default: available
       responses:
         '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
+          description: OK
         '400':
           description: Can't find variant {variant_code} in store {self.store.name}
       security:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  
+      requestBody:
+        $ref: '#/components/requestBodies/InventorySettings'
   /api/backend/groups/update:
     post:
       tags:
@@ -127,18 +102,13 @@ paths:
       operationId: addGroup
       responses:
         '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: integer
-                  format: int32
+          description: OK
         '400':
           description: 'Invalid group assignment: {parent}, Parent group not found'
       security:
         - api_key: []
+      requestBody:
+        $ref: '#/components/requestBodies/AddGroup'
   /api/backend/groups/aggregator-settings/update:
     post:
       tags:
@@ -148,24 +118,15 @@ paths:
       operationId: addGroupSettings
       responses:
         '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Order'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Order'
+          description: OK
         '400':
           description: 'Duplicate aggregator settings: {AggregatorType(aggregator_setting["group"]).label} settings for group {aggregator_setting["group"]} already exists in this request, Field "aggregator_setting" is not a valid JSON array'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
-        description: order placed for purchasing the pet
-        required: true
-  /api/store/orders/get/?last_order_id=0:
+              $ref: '#/components/schemas/GroupSettings'
+  /api/store/orders/get:
     get:
       tags:
         - Order
@@ -181,10 +142,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
-        description: Created user object
-        required: true
-  /api/store/orders/details?number=RRE2MM9W:
+              $ref: '#/components/schemas/GetOrder'
+  /api/store/orders/details:
     get:
       tags:
         - Order
@@ -285,10 +244,10 @@ paths:
           content:
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/GetOrder'
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/GetOrder'
         '400':
           description: Invalid username supplied
         '404':
@@ -318,7 +277,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/GetOrder'
         description: Updated user object
         required: true
   /api/backend/products/update:
@@ -328,13 +287,6 @@ paths:
       summary: Add / Update Product & Variant
       description: This can only be done by the logged in user.
       operationId: addProduct
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: OK
@@ -346,7 +298,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/AddProduct'
         description: Updated user object
         required: true
   /api/backend/products/variants/aggregator-settings/update:
@@ -356,13 +308,6 @@ paths:
       summary: Add / Update Variant Aggregator Settings
       description: This can only be done by the logged in user.
       operationId: addVariantSettings
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: OK
@@ -374,9 +319,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
+              $ref: '#/components/schemas/VariantSettings'
   /api/backend/groups/set-variants:
     post:
       tags:
@@ -384,13 +327,6 @@ paths:
       summary: Add / Update Variant Group
       description: This can only be done by the logged in user.
       operationId: addVariantGroup
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: OK
@@ -402,9 +338,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
+              $ref: '#/components/schemas/AddVariant'
   /api/backend/modifier-groups/aggregator-settings/update:
     post:
       tags:
@@ -412,13 +346,6 @@ paths:
       summary: Add / Update Modifier Aggregator Settings
       description: This can only be done by the logged in user.
       operationId: addModifierSettings
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be updated
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: OK
@@ -430,9 +357,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
-        description: Updated user object
-        required: true
+              $ref: '#/components/schemas/AddModifier'
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
@@ -445,12 +370,12 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/AddInventory'
         application/json:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/AddInventory'
   requestBodies:
     UserArray:
       content:
@@ -458,19 +383,34 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/GetOrder'
       description: List of user object
       required: true
-    Pet:
+    AddInventory:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/AddInventory'
         application/xml:
           schema:
-            $ref: '#/components/schemas/Pet'
-      description: Pet object that needs to be added to the store
+            $ref: '#/components/schemas/AddInventory'
+      description: ""
       required: true
+    OosInventory:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OosInventory'
+    InventorySettings:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InventorySettings'
+    AddGroup:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddGroup'
   securitySchemes:
     petstore_auth:
       type: oauth2
@@ -512,7 +452,26 @@ components:
           default: false
       xml:
         name: Order
-    User:
+    AddProduct:
+      type: object
+      properties:
+        code:
+          type: char
+        name:
+          type: char
+        display_name:
+          type: char
+        short_description:
+          type: char
+        description:
+          type: char
+        markdown_description:
+          type: string
+        position:
+          type: float
+        inventory_enabled:
+          type: boolean
+    GetOrder:
       type: object
       properties:
         id:
@@ -536,14 +495,17 @@ components:
           description: User Status
       xml:
         name: User
-    Category:
+    Inventories:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
+        variant_code:
+          type: char
+        price:
+          type: float
+        out_of_stock: 
+          type: boolean
+        is_active: 
+          type: boolean
       xml:
         name: Category
     Tag:
@@ -556,43 +518,114 @@ components:
           type: string
       xml:
         name: Tag
-    Pet:
+    AddInventory:
       type: object
-      required:
-        - name
-        - photoUrls
       properties:
-        id:
-          type: integer
-          format: int64
-        category:
-          $ref: '#/components/schemas/Category'
-        name:
-          type: string
-          example: doggie
-        photoUrls:
-          type: array
-          xml:
-            name: photoUrl
-            wrapped: true
-          items:
-            type: string
-        tags:
-          type: array
-          xml:
-            name: tag
-            wrapped: true
-          items:
-            $ref: '#/components/schemas/Tag'
-        status:
-          type: string
-          description: pet status in the store
-          enum:
-            - available
-            - pending
-            - sold
+        store_code:
+          type: char
+        inventories:
+          $ref: '#/components/schemas/Inventories'
       xml:
         name: Pet
+    OosInventory: 
+      type: object
+      properties:
+        store: 
+          type: char
+        code: 
+          type: char
+        out_of_stock:
+          type: boolean
+    InventorySettings: 
+      type: object
+      properties:
+        is_active:  
+          type: boolean
+        variant_code: 
+          type: char
+        price:
+          type: int
+        discounted_price:
+          type: float
+    AddGroup: 
+      type: object
+      properties:
+        code:  
+          type: char
+        name: 
+          type: char
+        parent:
+          type: char
+        is_active:
+          type: boolean
+    GroupSettings:
+      type: object
+      properties:
+        group:
+          type: string
+        is_active:
+          type: boolean
+        type:
+          type: string
+        name:
+          type: char
+        position:
+          type: int
+        description:
+          type: char
+        aggregator_category_id:
+          type: char
+    VariantSettings:
+      type: object
+      properties:
+        is_active:
+          type: boolean
+        variant_code:
+          type: char
+        type:
+          type: string
+        code:
+          type: char
+        sku:
+          type: char
+        name:
+          type: char
+        position:
+          type: int
+        default_price:
+          type: float
+        description:
+          type: char
+    AddVariant:
+      type: object
+      properties:
+        code:
+          type: char
+        sku:
+          type: char
+        name: 
+          type: char
+        display_name:
+          type: char
+        description:
+          type: char
+        markdown_description:
+          type: string
+        groups:
+          type: string
+        position:
+          type: float
+        dimension:
+          type: string (JSON)
+        extra_data:
+          type: string (JSON)
+    AddModifier:
+      type: object
+      properties:
+        is_active: 
+          type: boolean
+        position:
+          type: int
     ApiResponse:
       type: object
       properties:
