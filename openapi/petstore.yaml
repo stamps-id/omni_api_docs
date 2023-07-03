@@ -34,7 +34,7 @@ paths:
       tags:
         - pet
       summary: Add a new pet to the store
-      description: test
+      description: ''
       operationId: addPet
       responses:
         '200':
@@ -51,7 +51,7 @@ paths:
       tags:
         - pet
       summary: Update an existing pet
-      description: test
+      description: ''
       operationId: updatePet
       responses:
         '200':
@@ -174,7 +174,7 @@ paths:
       tags:
         - pet
       summary: Updates a pet in the store with form data
-      description: test
+      description: ''
       operationId: updatePetWithForm
       parameters:
         - name: petId
@@ -209,7 +209,7 @@ paths:
       tags:
         - pet
       summary: Deletes a pet
-      description: test
+      description: ''
       operationId: deletePet
       parameters:
         - name: api_key
@@ -240,7 +240,7 @@ paths:
       tags:
         - pet
       summary: uploads an image
-      description: test
+      description: ''
       operationId: uploadFile
       parameters:
         - name: petId
@@ -298,7 +298,7 @@ paths:
       tags:
         - store
       summary: Place an order for a pet
-      description: test
+      description: ''
       operationId: placeOrder
       responses:
         '200':
@@ -398,7 +398,7 @@ paths:
       tags:
         - user
       summary: Creates list of users with given input array
-      description: test
+      description: ''
       operationId: createUsersWithArrayInput
       responses:
         default:
@@ -410,7 +410,7 @@ paths:
       tags:
         - user
       summary: Creates list of users with given input array
-      description: test
+      description: ''
       operationId: createUsersWithListInput
       responses:
         default:
@@ -422,7 +422,7 @@ paths:
       tags:
         - user
       summary: Logs user into the system
-      description: test
+      description: ''
       operationId: loginUser
       parameters:
         - name: username
@@ -465,7 +465,7 @@ paths:
       tags:
         - user
       summary: Logs out current logged in user session
-      description: test
+      description: ''
       operationId: logoutUser
       responses:
         default:
@@ -475,7 +475,7 @@ paths:
       tags:
         - user
       summary: Get user by user name
-      description: test
+      description: ''
       operationId: getUserByName
       parameters:
         - name: username
