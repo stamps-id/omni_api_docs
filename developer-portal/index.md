@@ -1,5 +1,5 @@
 ---
-title: Training program
+title: Omni Ordering System
 ---
 
 # Training program
