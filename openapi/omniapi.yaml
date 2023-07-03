@@ -50,11 +50,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/AddInventory'
   /api/backend/inventories/update-out-of-stock:
@@ -68,11 +66,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/OosInventory'
   /api/backend/inventories/aggregator-settings/update:
@@ -86,11 +82,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/InventorySettings'
   /api/backend/groups/update:
@@ -104,9 +98,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
       security:
-        - api_key: []
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/AddGroup'
   /api/backend/groups/aggregator-settings/update:
@@ -120,7 +114,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
+      security:
+        - Stamps_APIToken:
       requestBody:
         content:
           application/json:
@@ -137,7 +133,9 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
   /api/store/orders/details:
     get:
       tags:
@@ -149,7 +147,9 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/OrderDetails'
   /api/store/orders/paid:
@@ -163,7 +163,9 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/Orders'
   /api/store/orders/complete:
@@ -177,7 +179,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/CompleteOrder'
   /api/store/orders/confirm:
@@ -191,7 +195,9 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/Orders'
   /api/store/orders/cancel:
@@ -205,7 +211,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
       requestBody:
         $ref: '#/components/requestBodies/Orders'
   /api/mobile/orders/add:
@@ -219,7 +227,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+      security:
+        - Stamps_APIToken:
       requestBody:
         content:
           application/json:
@@ -238,7 +248,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
+      security:
+        - Stamps_APIToken:
       requestBody:
         content:
           application/json:
@@ -257,7 +269,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
+      security:
+        - Stamps_APIToken:
       requestBody:
         content:
           application/json:
@@ -274,7 +288,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
+      security:
+        - Stamps_APIToken:
       requestBody:
         content:
           application/json:
@@ -291,7 +307,9 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#modifier)
+      security:
+        - Stamps_APIToken:
       requestBody:
         content:
           application/json:
@@ -362,17 +380,10 @@ components:
           schema:
             $ref: '#/components/schemas/AddOrder'
   securitySchemes:
-    petstore_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://petstore.swagger.io/oauth/dialog'
-          scopes:
-            'write:pets': modify pets in your account
-            'read:pets': read your pets
-    api_key:
+    Stamps_APIToken:
+      description: API Token Provided by Stamps, please contact Stamps if you have not received your token.
       type: apiKey
-      name: api_key
+      name: PRIVATE-TOKEN
       in: header
   schemas:
     AddProduct:
@@ -576,14 +587,4 @@ components:
         table_number:
           type: char
         status:
-          type: string
-    ApiResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        type:
-          type: string
-        message:
           type: string
