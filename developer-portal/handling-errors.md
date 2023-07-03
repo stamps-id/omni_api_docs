@@ -28,31 +28,31 @@ title: Handling Errors
 
 ### Order
     - Get Order
-        - error_code: | error_message: Please wait for a few minutes and try again
+        - error_code: rate_limit_exceeded | error_message: Please wait for a few minutes and try again
 
     - Get Order Details
-        - error_code: | error_message: Invalid last order id
+        - error_code: ? | error_message: ?
 
     - Paid Order
-        - error_code: | error_message: Order not found 
-        - error_code: | error_message: Order already paid
+        - error_code: invalid_order_number | error_message: Order not found 
+        - error_code: already_paid | error_message: Order already paid
 
     - Complete Order
-        - error_code: | error_message: Order not found
-        - error_code: | error_message: Order already completed
-        - error_code: | error_message: Order already canceled
+        - error_code: invalid_order_number | error_message: Order not found
+        - error_code: order_already_completed | error_message: Order already completed
+        - error_code: order_already_canceled | error_message: Order already canceled
 
     - Confirm Order
-        - error_code: | error_message: Order not found
-        - error_code: | error_message: Order has been {order.get_status_display().lower()}
+        - error_code: invalid_order_number | error_message: Order not found
+        - error_code: invalid_status | error_message: Order has been {order.get_status_display().lower()}
 
     - Cancel Order
         - error_code: invalid_order_number | error_message: Order not found
         - error_code: order_already_canceled | error_message: Order already canceled
 
     - Add Order
-        - error_code: | error_message: Sorry, the following item(s) are not available
-        - error_code: | error_message: Please wait for a few seconds and try again
+        - error_code: has_invalid_items | error_message: Sorry, the following item(s) are not available
+        - error_code: aquisition_error | error_message: Please wait for a few seconds and try again
 
 ### Product and Variant
     - Add / Update Product & Variant

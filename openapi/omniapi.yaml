@@ -17,27 +17,15 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: Inventory
-    description: Everything about your Pets
-    externalDocs:
-      description: Find out more
-      url: 'http://swagger.io'
+    description: Inventory settings and modifications
   - name: Group
-    description: Access to Petstore orders
+    description: Group settings and modifications
   - name: Order
-    description: Operations about user
-    externalDocs:
-      description: Find out more about our store
-      url: 'http://swagger.io'
+    description: Order settings and modifications
   - name: Product and Variant
-    description: Operations about user
-    externalDocs:
-      description: Find out more about our store
-      url: 'http://swagger.io'
+    description: Product and Variant settings and modifications
   - name: Modifier
-    description: Operations about user
-    externalDocs:
-      description: Find out more about our store
-      url: 'http://swagger.io'
+    description: Modifier settings 
 paths:
   /api/backend/inventories/update:
     post:
@@ -150,8 +138,6 @@ paths:
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken:
-      requestBody:
-        $ref: '#/components/requestBodies/OrderDetails'
   /api/store/orders/paid:
     post:
       tags:
@@ -359,11 +345,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/AddGroup'
-    OrderDetails:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OrderDetails'
     Orders:
       content:
         application/json:
@@ -550,11 +531,6 @@ components:
           type: boolean
         position:
           type: int
-    OrderDetails:
-      type: object
-      properties:
-        last_order_id:
-          type: char
     Orders:
       type: object
       properties:

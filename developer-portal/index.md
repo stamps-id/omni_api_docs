@@ -2,14 +2,38 @@
 title: Omni Ordering System
 ---
 
-# Training program
+# Omni Ordering System
 
-This interactive training program is designed to help you understand how to create and edit content using Redocly's developer portal.
-It's a great companion to our [developer portal docs](https://docs.redoc.ly/developer-portal/introduction/).
+## JSON
+All POST requests to Stamps’ API must be JSON encoded, having “application/json” as Content-Type. JSON is a language independent, standards based [(RFC 4627)](http://tools.ietf.org/html/rfc4627) data interchange format that’s supported in practically every modern programming language.
 
-Spend between an hour and a day playing with the most commonly utilized features.
+If you’re not yet familiar with JSON, [Wikipedia](https://en.wikipedia.org/wiki/JSON) has a nice primer on the data interchange format.
 
-## Prerequisites
+## Making a HTTP Request
+Here’s an example on how to specify an extra content type header in request using the widely supported cURL - it’s freely available on Mac, Linux and Windows. You can get cURL from [http://curl.haxx.se/](http://curl.haxx.se/)
+
+```
+> $ curl –X POST –H "Content-Type: application/json"
+```
+Testing tip: we recommend the use of httpbin for testing purposes. It’s a simple service that simply echoes back your HTTP request so you can easily debug whether your application is sending the right data. For example:
+
+```
+$ curl http://httpbin.org/get
+{
+   "args": {},
+   "headers": {
+      "Accept": "*/*",
+      "Connection": "close",
+      "Content-Length": "",
+      "Content-Type": "",
+      "Host": "httpbin.org",
+      "User-Agent": "curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8l zlib/1.2.3"
+   },
+   "origin": "24.127.96.129",
+   "url": "http://httpbin.org/get"
+}
+```
+<!-- ## Prerequisites
 - Basic Git and markdown knowledge
 - Node and yarn installed
 - A text editor or IDE (we like VS Code)
@@ -42,4 +66,4 @@ Learn how to [deploy the developer portal](https://docs.redoc.ly/ci-cd-workflows
 
 ## Asking for help
 
-Don't be shy... we're here to help.
+Don't be shy... we're here to help. -->
