@@ -353,7 +353,7 @@ components:
           schema:
             $ref: '#/components/schemas/AddOrder'
   securitySchemes:
-    Stamps_APIToken
+    Stamps_APIToken:
       description: API Token Provided by Stamps, please contact Stamps if you have not received your token.
       type: apiKey
       name: PRIVATE-TOKEN
