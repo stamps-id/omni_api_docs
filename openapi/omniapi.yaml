@@ -40,7 +40,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/AddInventory'
   /api/backend/inventories/update-out-of-stock:
@@ -56,7 +56,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/OosInventory'
   /api/backend/inventories/aggregator-settings/update:
@@ -72,7 +72,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/InventorySettings'
   /api/backend/groups/update:
@@ -88,7 +88,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/AddGroup'
   /api/backend/groups/aggregator-settings/update:
@@ -104,7 +104,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         content:
           application/json:
@@ -123,7 +123,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
   /api/store/orders/details:
     get:
       tags:
@@ -137,7 +137,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
   /api/store/orders/paid:
     post:
       tags:
@@ -151,7 +151,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/Orders'
   /api/store/orders/complete:
@@ -167,7 +167,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/CompleteOrder'
   /api/store/orders/confirm:
@@ -183,7 +183,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/Orders'
   /api/store/orders/cancel:
@@ -199,7 +199,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         $ref: '#/components/requestBodies/Orders'
   /api/mobile/orders/add:
@@ -215,7 +215,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         content:
           application/json:
@@ -236,7 +236,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         content:
           application/json:
@@ -257,7 +257,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         content:
           application/json:
@@ -276,7 +276,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         content:
           application/json:
@@ -295,7 +295,7 @@ paths:
         '400':
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#modifier)
       security:
-        - Stamps_APIToken
+        - Stamps_APIToken[]
       requestBody:
         content:
           application/json:
@@ -353,7 +353,7 @@ components:
           schema:
             $ref: '#/components/schemas/AddOrder'
   securitySchemes:
-    Stamps_APIToken:
+    Stamps_APIToken[]:
       description: API Token Provided by Stamps, please contact Stamps if you have not received your token.
       type: apiKey
       name: PRIVATE-TOKEN
@@ -435,7 +435,7 @@ components:
         variant_code: 
           type: string
         price:
-          type: int
+          type: integer
         discounted_price:
           type: number
     AddGroup: 
@@ -461,7 +461,7 @@ components:
         name:
           type: string
         position:
-          type: int
+          type: integer
         description:
           type: string
         aggregator_category_id:
@@ -482,7 +482,7 @@ components:
         name:
           type: string
         position:
-          type: int
+          type: integer
         default_price:
           type: number
         description:
@@ -516,7 +516,7 @@ components:
         is_active: 
           type: boolean
         position:
-          type: int
+          type: integer
     Orders:
       type: object
       properties:
