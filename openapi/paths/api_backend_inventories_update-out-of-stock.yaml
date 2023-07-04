@@ -1,0 +1,17 @@
+post:
+  tags:
+    - Inventory
+  summary: Update Out of Stock Inventory
+  description: ''
+  operationId: updateInventory
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: >-
+        You will get a pair of `error_code` and `error_message`. [Handling
+        Errors](/developer-portal/handling-errors/#inventory)
+  security:
+    - Stamps_APIToken: []
+  requestBody:
+    $ref: ..\components\requestBodies\OosInventory.yaml

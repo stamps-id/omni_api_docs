@@ -1,0 +1,15 @@
+get:
+  tags:
+    - Order
+  summary: Get Order
+  description: This can only be done by the logged in user.
+  operationId: getOrder
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: >-
+        You will get a pair of `error_code` and `error_message`. [Handling
+        Errors](/developer-portal/handling-errors/#order)
+  security:
+    - Stamps_APIToken: []

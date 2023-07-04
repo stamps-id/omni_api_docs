@@ -1,0 +1,20 @@
+type: object
+properties:
+  is_active:
+    type: boolean
+  variant_code:
+    type: string
+  type:
+    type: integer
+  code:
+    type: string
+  sku:
+    type: string
+  name:
+    type: string
+  position:
+    type: integer
+  default_price:
+    type: number
+  description:
+    type: string

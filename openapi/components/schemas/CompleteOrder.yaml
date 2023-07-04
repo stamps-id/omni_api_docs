@@ -1,0 +1,10 @@
+type: object
+properties:
+  order:
+    type: string
+  receiver_name:
+    type: string
+  received_time:
+    type: string
+  payment_method:
+    type: integer

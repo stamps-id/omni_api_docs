@@ -1,0 +1,10 @@
+type: object
+properties:
+  is_active:
+    type: boolean
+  variant_code:
+    type: string
+  price:
+    type: integer
+  discounted_price:
+    type: number

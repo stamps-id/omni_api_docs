@@ -1,0 +1,16 @@
+type: object
+properties:
+  group:
+    type: string
+  is_active:
+    type: boolean
+  type:
+    type: integer
+  name:
+    type: string
+  position:
+    type: integer
+  description:
+    type: string
+  aggregator_category_id:
+    type: string

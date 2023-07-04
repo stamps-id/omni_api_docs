@@ -1,0 +1,17 @@
+post:
+  tags:
+    - Group
+  summary: Add / Update Group
+  description: Returns a map of status codes to quantities
+  operationId: addGroup
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: >-
+        You will get a pair of `error_code` and `error_message`. [Handling
+        Errors](/developer-portal/handling-errors/#group)
+  security:
+    - Stamps_APIToken: []
+  requestBody:
+    $ref: ..\components\requestBodies\AddGroup.yaml

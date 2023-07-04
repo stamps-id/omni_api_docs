@@ -1,0 +1,17 @@
+post:
+  tags:
+    - Inventory
+  summary: Add / Update Inventory Aggregator Settings
+  description: Multiple status values can be provided with comma separated strings
+  operationId: addInventorySettings
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: >-
+        You will get a pair of `error_code` and `error_message`. [Handling
+        Errors](/developer-portal/handling-errors/#inventory)
+  security:
+    - Stamps_APIToken: []
+  requestBody:
+    $ref: ..\components\requestBodies\InventorySettings.yaml

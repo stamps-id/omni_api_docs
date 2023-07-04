@@ -1,0 +1,6 @@
+type: object
+properties:
+  store_code:
+    type: string
+  inventories:
+    $ref: .\Inventories.yaml

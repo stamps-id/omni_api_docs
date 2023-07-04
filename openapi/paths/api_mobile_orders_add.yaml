@@ -1,0 +1,22 @@
+post:
+  tags:
+    - Order
+  summary: Add Order
+  description: This can only be done by the logged in user.
+  operationId: addOrder
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: >-
+        You will get a pair of `error_code` and `error_message`. [Handling
+        Errors](/developer-portal/handling-errors/#order)
+  security:
+    - Stamps_APIToken: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ..\components\schemas\AddOrder.yaml
+    description: Updated user object
+    required: true
