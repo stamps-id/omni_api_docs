@@ -309,11 +309,6 @@ components:
     PetResponse:
       description: successful operation
       content:
-        application/xml:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/AddInventory'
         application/json:
           schema:
             type: array
@@ -323,9 +318,6 @@ components:
     AddInventory:
       content:
         application/json:
-          schema:
-            $ref: '#/components/schemas/AddInventory'
-        application/xml:
           schema:
             $ref: '#/components/schemas/AddInventory'
       description: ""
@@ -371,15 +363,15 @@ components:
       type: object
       properties:
         code:
-          type: char
+          type: string
         name:
-          type: char
+          type: string
         display_name:
-          type: char
+          type: string
         short_description:
-          type: char
+          type: string
         description:
-          type: char
+          type: string
         markdown_description:
           type: string
         position:
@@ -408,37 +400,31 @@ components:
           type: integer
           format: int32
           description: User Status
-      xml:
-        name: User
     Inventories:
       type: object
       properties:
         variant_code:
-          type: char
+          type: string
         price:
           type: float
         out_of_stock: 
           type: boolean
         is_active: 
           type: boolean
-      xml:
-        name: Category
     AddInventory:
       type: object
       properties:
         store_code:
-          type: char
+          type: string
         inventories:
           $ref: '#/components/schemas/Inventories'
-      xml:
-        name: Pet
     OosInventory: 
       type: object
       properties:
         store: 
-          type: char
+          type: string
         code: 
-          type: char
+          type: string
         out_of_stock:
           type: boolean
     InventorySettings: 
@@ -447,20 +433,20 @@ components:
         is_active:  
           type: boolean
         variant_code: 
-          type: char
+          type: string
         price:
-          type: int
+          type: integer
         discounted_price:
           type: float
     AddGroup: 
       type: object
       properties:
         code:  
-          type: char
+          type: string
         name: 
-          type: char
+          type: string
         parent:
-          type: char
+          type: string
         is_active:
           type: boolean
     GroupSettings:
@@ -471,49 +457,49 @@ components:
         is_active:
           type: boolean
         type:
-          type: string
+          type: integer
         name:
-          type: char
+          type: string
         position:
-          type: int
+          type: integer
         description:
-          type: char
+          type: string
         aggregator_category_id:
-          type: char
+          type: string
     VariantSettings:
       type: object
       properties:
         is_active:
           type: boolean
         variant_code:
-          type: char
-        type:
           type: string
+        type:
+          type: integer
         code:
-          type: char
+          type: string
         sku:
-          type: char
+          type: string
         name:
-          type: char
+          type: string
         position:
-          type: int
+          type: integer
         default_price:
           type: float
         description:
-          type: char
+          type: string
     AddVariant:
       type: object
       properties:
         code:
-          type: char
+          type: string
         sku:
-          type: char
+          type: string
         name: 
-          type: char
+          type: string
         display_name:
-          type: char
+          type: string
         description:
-          type: char
+          type: string
         markdown_description:
           type: string
         groups:
@@ -530,37 +516,37 @@ components:
         is_active: 
           type: boolean
         position:
-          type: int
+          type: integer
     Orders:
       type: object
       properties:
         order: 
-          type: char
+          type: string
     CompleteOrder:
       type: object
       properties:
         order: 
-          type: char
+          type: string
         receiver_name:
-          type: char
+          type: string
         received_time:
           type: string
         payment_method:
-          type: string
+          type: integer
     AddOrder:
       type: object
       properties:
         notes: 
-          type: char
+          type: string
         payment_method:
-          type: string
+          type: integer
         channel:
-          type: string
+          type: integer
         type:
-          type: string
+          type: integer
         queue_number:
-          type: char
+          type: string
         table_number:
-          type: char
+          type: string
         status:
           type: string
