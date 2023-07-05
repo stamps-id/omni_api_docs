@@ -1,8 +1,8 @@
 training:
-  - page: developer-portal/index.md
+  - page: developer-portal/index.md 
   - group: Ordering System
     expanded: true
     pages:
       - page: openapi/reference.page.yaml/*
-  - label: Handling Errors
-    page: developer-portal/handling-errors.md
+  # - label: Handling Errors
+    # page: developer-portal/handling-errors.md

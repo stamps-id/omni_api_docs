@@ -1,6 +1,0 @@
-type: object
-properties:
-  is_active:
-    type: boolean
-  position:
-    type: integer
