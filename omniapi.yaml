@@ -18,7 +18,7 @@ info:
 tags:
   - name: Introduction
     description: 
-      $ref: '../developer-portal/intro.md'
+      $ref: '/developer-portal/intro.md'
   - name: Inventory
     description: Inventory settings and modifications
   - name: Group
@@ -31,7 +31,7 @@ tags:
     description: Modifier settings 
   - name: Handling Errors
     description: 
-      $ref: '../developer-portal/handling-errors.md'
+      $ref: '/developer-portal/handling-errors.md'
 paths:
   /api/backend/inventories/update:
     post:
@@ -307,25 +307,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AddModifier'
-  # /api/backend/modifier-groups/aggregator-settings/error:
-  #   post:
-  #     tags:
-  #       - Handling Errors
-  #     summary: Add / Update Modifier Aggregator Settings
-  #     description: This can only be done by the logged in user.
-  #     operationId: Handling error
-  #     responses:
-  #       '200':
-  #         description: OK
-  #       '400':
-  #         description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
-  #     security:
-  #       - Stamps_APIToken: []
-  #     requestBody:
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/AddModifier'
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
