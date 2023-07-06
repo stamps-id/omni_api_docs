@@ -18,7 +18,7 @@ info:
 tags:
   - name: Introduction
     description: 
-      $ref: '/developer-portal/intro.md'
+      $ref: '../developer-portal/intro.md'
   - name: Inventory
     description: Inventory settings and modifications
   - name: Group
@@ -31,7 +31,7 @@ tags:
     description: Modifier settings 
   - name: Handling Errors
     description: 
-      $ref: '/developer-portal/handling-errors.md'
+      $ref: '../developer-portal/handling-errors.md'
 paths:
   /api/backend/inventories/update:
     post:
@@ -44,7 +44,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -60,7 +60,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -76,7 +76,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -92,7 +92,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -108,7 +108,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -127,7 +127,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
   /api/store/orders/details:
@@ -141,7 +141,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
   /api/store/orders/paid:
@@ -155,7 +155,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -171,7 +171,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -187,7 +187,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -203,7 +203,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -219,7 +219,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -240,7 +240,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -261,7 +261,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -280,7 +280,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -299,7 +299,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/#tag/Handling-Errors)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#modifier)
       security:
         - Stamps_APIToken: []
       requestBody:
