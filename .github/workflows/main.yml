@@ -1,7 +1,7 @@
 name: Create index.html
 run-name: Yaml to HTML conversion
 on:
-  pull_request:
+  push:
     branches:    
       - main
 jobs:
@@ -25,6 +25,6 @@ jobs:
       - name: git commit
         run: git commit -m "html file"
       - name: git push
-        run: git push
+        run: git push origin fix-docs
       - name: List files
         run: ls -R
