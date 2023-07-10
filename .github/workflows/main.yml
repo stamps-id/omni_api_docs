@@ -12,4 +12,4 @@ jobs:
 #       - name: cd to root folder
 #         run: cd ${{ github.workspace }}/openapi
       - name: Convert YAML to HTML
-        run: npx @redocly/cli build-docs openapi/omniapi.yaml
+        run: npx @redocly/cli build-docs openapi/omniapi.yaml -o index.html
