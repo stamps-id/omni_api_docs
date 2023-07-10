@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /github/workspace
+cd /.github/workflows
 
 echo "redoc-cli version: $(redoc-cli --version)"
 
