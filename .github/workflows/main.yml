@@ -1,0 +1,11 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli
+      - name: Convert YAML to HTML
+        run: npx redoc-cli bundle openapi/omniapi.yaml -o omniapi.html
