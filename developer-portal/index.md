@@ -1,5 +1,5 @@
 ---
-title: OMNI 
+title: Omni Ordering System
 ---
 
 # OMNI Ordering System

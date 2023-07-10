@@ -1,5 +1,5 @@
 ---
-title: Demo API Portal
+title: Omni Docs
 ---
 
 import {
@@ -30,8 +30,8 @@ export default LandingLayout;
 
 <Jumbotron bgColor="#f16722">
   <NavBar location={props.location} standalone={false} />
-  <H1>Redocly training</H1>
-  <H2>A starter developer portal with training exercises</H2>
+  <H1>Omni</H1>
+  <H2>Our Ordering System</H2>
   <Flex p={20} justifyContent="center">
     {/* <Button size="xlarge" to="https://app.redoc.ly">
       Redocly app
@@ -46,16 +46,10 @@ export default LandingLayout;
 </Jumbotron>
 <Box my={25}>
   <SectionHeader>
-    Create your <Emphasis> developer portal </Emphasis> today!
+    Table of <Emphasis> Contents </Emphasis>
   </SectionHeader>
   <FlexSection justifyContent="space-around" flexWrap="wrap">
-    <ThinTile to="developer-portal/index.md" icon={icon1} header="Rock">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo
-        invenire aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril
-        labitur an usu.Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea
-        justo invenire aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing.
+    <ThinTile to="openapi/reference/tag/Inventory/" icon={icon1} header="Inventory">
     </ThinTile>
     <ThinTile to="openapi/reference/tag/Group/" icon={box} header="Group">
     </ThinTile>
@@ -65,36 +59,6 @@ export default LandingLayout;
     </ThinTile>
     <ThinTile to="openapi/reference/tag/Modifier/" icon={modify} header="Modifier">
     </ThinTile>
-  </FlexSection>
-  {/* <Jumbotron parallaxEffect bgImage={icon1}>
-    <H1>Tutorials</H1>
-    <H2>Get setup faster...</H2>
-  </Jumbotron> */}
-  <SectionHeader>
-    <Emphasis>Need help? </Emphasis>
-    Try our training exercises.
-  </SectionHeader>
-  <FlexSection justifyContent="space-around" flexWrap="wrap">
-    <WideTile to="developer-portal/index.md" header="Rock">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-    <WideTile to="developer-portal/index.md" header="Paper">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-    <WideTile to="developer-portal/index.md" header="Scissors">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-    <WideTile to="developer-portal/index.md" header="Go">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
   </FlexSection>
 </Box>
 
