@@ -4,5 +4,5 @@ training:
     expanded: true
     pages:
       - page: openapi/reference.page.yaml/*
-  - label: Handling Errors
-    page: developer-portal/handling-errors.md
+  # - label: Handling Errors
+    # page: developer-portal/handling-errors.md
