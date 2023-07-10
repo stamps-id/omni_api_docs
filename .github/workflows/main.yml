@@ -8,4 +8,4 @@ jobs:
       - name: Install Redocly CLI
         run: npm install -g @redocly/cli
       - name: Convert YAML to HTML
-        run: npx redoc-cli bundle openapi/omniapi.yaml -o omniapi.html
+        run: npx @redocly/cli build-docs openapi/omniapi.yaml -o omniapi.html
