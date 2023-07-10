@@ -13,5 +13,11 @@ jobs:
 #         run: cd ${{ github.workspace }}/openapi
       - name: Convert YAML to HTML
         run: npx @redocly/cli build-docs openapi/omniapi.yaml -o index.html
+      - name: git add
+        run: git add --all
+      - name: git commit
+        run: git commit -m "html file"
+      - name: git push
+        run: git push
       - name: List files
         run: ls -R
