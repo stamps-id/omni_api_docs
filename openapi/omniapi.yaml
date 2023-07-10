@@ -44,7 +44,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errorsinventory)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
