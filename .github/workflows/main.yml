@@ -5,9 +5,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Install Redocly CLI
         run: npm install -g @redocly/cli
-      - name: cd to root folder
-        run: cd ${{ github.workspace }}/openapi
+#       - name: cd to root folder
+#         run: cd ${{ github.workspace }}/openapi
       - name: Convert YAML to HTML
-        run: npx @redocly/cli build-docs omniapi
+        run: npx @redocly/cli build-docs openapi/omniapi.yaml
