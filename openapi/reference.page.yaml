@@ -1,5 +1,5 @@
 type: reference-docs
-definitionId: omniapi
+definitionId: petstore
 settings:
   generateCodeSamples:
     languages:
