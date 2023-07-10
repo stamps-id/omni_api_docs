@@ -8,6 +8,6 @@ jobs:
       - name: Install Redocly CLI
         run: npm install -g @redocly/cli
       - name: cd to root folder
-        run: cd ${{ github.workspace }}
+        run: cd ${{ github.workspace }}/openapi
       - name: Convert YAML to HTML
         run: npx @redocly/cli build-docs omniapi
