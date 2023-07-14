@@ -1,0 +1,64 @@
+---
+title: Omni Docs
+---
+
+import {
+  LandingLayout,
+  Button,
+  Box,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  H1,
+  H2,
+  SectionHeader,
+  NavBar,
+} from '@redocly/developer-portal/ui';
+
+import icon1 from './images/icon1.png';
+import box from './images/box.png';
+import icon3 from './images/icon3.png';
+import product from './images/products.png';
+import modify from './images/edit.png';
+import bookManagementIcon from './images/book-management.svg';
+import foundOrPrivate from './images/found-or-private.svg';
+
+export default LandingLayout;
+
+<Jumbotron bgColor="#f16722">
+  <NavBar location={props.location} standalone={false} />
+  <H1>Omni</H1>
+  <H2>Our Ordering System</H2>
+  <Flex p={20} justifyContent="center">
+    {/* <Button size="xlarge" to="https://app.redoc.ly">
+      Redocly app
+    </Button> */}
+     <Button variant="outlined" size="xlarge" to="developer-portal/index.md">
+      Get started
+    </Button>
+    {/* <Button variant="outlined" size="xlarge" to="https://redoc.ly/docs">
+      Docs
+    </Button> */}
+  </Flex>
+</Jumbotron>
+<Box my={25}>
+  <SectionHeader>
+    Table of <Emphasis> Contents </Emphasis>
+  </SectionHeader>
+  <FlexSection justifyContent="space-around" flexWrap="wrap">
+    <ThinTile to="openapi/reference/tag/Inventory/" icon={icon1} header="Inventory">
+    </ThinTile>
+    <ThinTile to="openapi/reference/tag/Group/" icon={box} header="Group">
+    </ThinTile>
+    <ThinTile to="openapi/reference/tag/Order/" icon={icon3} header="Order">
+    </ThinTile>
+    <ThinTile to="openapi/reference/tag/Product-and-Variant/" icon={product} header="Product & Variant">
+    </ThinTile>
+    <ThinTile to="openapi/reference/tag/Modifier/" icon={modify} header="Modifier">
+    </ThinTile>
+  </FlexSection>
+</Box>
+

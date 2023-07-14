@@ -1,0 +1,30 @@
+name: Create index.html
+run-name: Yaml to HTML conversion
+on:
+  push:
+    branches:    
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli
+        
+      - name: Convert YAML to HTML
+        run: npx @redocly/cli build-docs openapi/omniapi.yaml -o index.html
+        
+      - name: Create orphan branch
+        run: git checkout --orphan gh-pages
+        
+      - name: Commit changes
+        run: |
+          git config user.name "AndrewLiii"
+          git config user.email "ar4games@gmail.com"
+          git add --all
+          git commit -m "HTML files"
+
+      - name: Force push to branch
+        run: git push --force origin gh-pages
