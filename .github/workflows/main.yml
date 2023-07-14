@@ -16,9 +16,6 @@ jobs:
       - name: Convert YAML to HTML
         run: npx @redocly/cli build-docs openapi/omniapi.yaml -o index.html
         
-      - name: Create orphan branch
-        run: git checkout --orphan main
-        
       - name: Commit changes
         run: |
           git config user.name "AndrewLiii"
