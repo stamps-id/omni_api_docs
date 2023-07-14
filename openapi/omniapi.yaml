@@ -144,6 +144,8 @@ paths:
           description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
+      requestBody:
+        $ref: '#/components/requestBodies/OrderDetails'
   /api/store/orders/paid:
     post:
       tags:
@@ -447,7 +449,7 @@ components:
     AddGroup: 
       type: object
       properties:
-        code:  
+        code:
           type: string
         name: 
           type: string
@@ -526,12 +528,12 @@ components:
     Orders:
       type: object
       properties:
-        order: 
+        order:
           type: string
     CompleteOrder:
       type: object
       properties:
-        order: 
+        order:
           type: string
         receiver_name:
           type: string
