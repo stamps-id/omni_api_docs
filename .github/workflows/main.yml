@@ -1,43 +1,30 @@
-name: test-deploy
-
-# Run on each push to master
+name: Create index.html
+run-name: Yaml to HTML conversion
 on:
   push:
-    branches: [ main ]
-
+    branches:    
+      - main
 jobs:
-  test_job:
+  build:
     runs-on: ubuntu-latest
-    name: Testing private usage
     steps:
-      # To use this repository's private action, you must check out the repository
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: redoc-cli test
-        uses: ./ # Uses an action in the root directory
-        with:
-          args: 'bundle openapi/omniapi.yaml -o omniapi.html'
-
-      - name: check result
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli
+        
+      - name: Convert YAML to HTML
+        run: npx @redocly/cli build-docs openapi/omniapi.yaml -o index.html
+        
+      - name: Create orphan branch
+        run: git checkout --orphan gh-pages
+        
+      - name: Commit changes
         run: |
-          ls -al
-          test -f omniapi.html || (echo "Missing petstore.html from previous step." && exit 1)
+          git config user.name "AndrewLiii"
+          git config user.email "ar4games@gmail.com"
+          git add --all
+          git commit -m "HTML files"
 
-  test_job_2:
-    runs-on: ubuntu-latest
-    name: Testing public name
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # use the public name of the action
-      - name: redoc-cli test
-        uses: seeebiii/redoc-cli-github-action@v10
-        with:
-          args: 'bundle openapi/omniapi.yaml -o omniapi.html'
-
-      - name: check result
-        run: |
-          ls -al
-          test -f omniapi.html || (echo "Missing petstore.html from previous step." && exit 1)
+      - name: Force push to branch
+        run: git push --force origin gh-pages

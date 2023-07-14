@@ -44,7 +44,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -60,7 +60,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -76,7 +76,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#inventory)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -92,7 +92,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -108,7 +108,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#group)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -127,7 +127,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
   /api/store/orders/details:
@@ -141,7 +141,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -157,7 +157,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -173,7 +173,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -189,7 +189,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -205,7 +205,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -221,7 +221,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#order)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -242,7 +242,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -263,7 +263,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -282,7 +282,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#product-and-variant)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -301,7 +301,7 @@ paths:
         '200':
           description: OK
         '400':
-          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/developer-portal/handling-errors/#modifier)
+          description: You will get a pair of `error_code` and `error_message`. [Handling Errors](/omni_api_docs/#tag/Handling-Errors)
       security:
         - Stamps_APIToken: []
       requestBody:
@@ -364,7 +364,7 @@ components:
     Stamps_APIToken:
       description: API Token Provided by Stamps, please contact Stamps if you have not received your token.
       type: apiKey
-      name: PRIVATE-TOKEN
+      name: Token {secret token}
       in: header
   schemas:
     AddProduct:
